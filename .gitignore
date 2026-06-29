@@ -8,9 +8,5 @@ __pycache__/
 .venv/
 venv/
 
-# Scoring results are large (276 scores × turns × 50 convs)
-# Regenerate with: python -m src.scorer
-results/
-
 # OS
 .DS_Store
