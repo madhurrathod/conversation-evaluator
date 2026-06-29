@@ -30,7 +30,7 @@ from sklearn.decomposition import PCA
 REGISTRY_CSV = Path("data/facets_registry.csv")
 CLUSTERS_JSON = Path("data/facets_clusters.json")
 
-TARGET_BATCH_SIZE = 15
+TARGET_BATCH_SIZE = 28
 EMBED_MODEL = "all-MiniLM-L6-v2"
 
 GROQ_GENERATION_MODEL = "llama-3.3-70b-versatile"

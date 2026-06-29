@@ -1,8 +1,8 @@
 [
   {
     "cluster_id": 0,
-    "label": "Personality",
-    "size": 15,
+    "label": "General",
+    "size": 28,
     "facets": [
       {
         "facet_name": "Genuine",
@@ -153,14 +153,7 @@
         "score_anchor_5": "The speaker actively and explicitly tries to influence others, using various persuasive strategies to achieve their goals.",
         "polarity": "neutral",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 1,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Talkativeness",
         "category": "General",
@@ -290,7 +283,14 @@
         "score_anchor_5": "The speaker consistently displays a curious, open-minded, and adventurous attitude, embracing new ideas and experiences.",
         "polarity": "positive",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 1,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Effeteness",
         "category": "General",
@@ -310,14 +310,7 @@
         "score_anchor_5": "The speaker is very comfortable sharing personal feelings and vulnerabilities, seeing it as a strength",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 2,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Sensitivity",
         "category": "General",
@@ -467,14 +460,7 @@
         "score_anchor_5": "The person dominates the conversation, assertively expressing their thoughts and opinions and taking risks to steer the conversation in a particular direction.",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 3,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Self-effacement",
         "category": "General",
@@ -584,7 +570,14 @@
         "score_anchor_5": "The person frequently exhibits irritability, argumentativeness, and a tendency to complain, dominating conversations with negativity",
         "polarity": "negative",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Mysteriousness",
         "category": "Personality",
@@ -624,14 +617,7 @@
         "score_anchor_5": "The speaker's thoughts are well-organized, logical, and easy to follow, with a clear structure to their conversation.",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 4,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Concreteness",
         "category": "General",
@@ -781,14 +767,7 @@
         "score_anchor_5": "The speaker's words or actions are intentionally hurtful or cause significant harm to others, such as bullying, mocking, or manipulating.",
         "polarity": "negative",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 5,
-    "label": "Personality",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Affection",
         "category": "Emotional",
@@ -878,7 +857,14 @@
         "score_anchor_5": "The speaker consistently expresses their unique thoughts, feelings, and experiences, even if they differ from those of others",
         "polarity": "positive",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Selfcontrol",
         "category": "Personality",
@@ -938,14 +924,7 @@
         "score_anchor_5": "The speaker displays high levels of abasement, excessively self-deprecating, humble, or submissive, and prioritizing others' needs over their own.",
         "polarity": "neutral",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 6,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Significance: Desire to make an impact",
         "category": "General",
@@ -1095,14 +1074,7 @@
         "score_anchor_5": "The speaker uses rich, nuanced, and engaging language, adapting their tone and style to the context",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 7,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Affinity",
         "category": "General",
@@ -1172,7 +1144,14 @@
         "score_anchor_5": "The person's language reflects an extremely strong work ethic, with a willingness to put in extra effort and dedication to achieve goals, and a focus on continuous learning and improvement.",
         "polarity": "positive",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 4,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Merriness",
         "category": "Emotional",
@@ -1252,14 +1231,7 @@
         "score_anchor_5": "The speaker displays high levels of suspicion, being extremely distrustful, skeptical, or paranoid, and questioning others' motives or intentions.",
         "polarity": "negative",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 8,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Impracticalness",
         "category": "General",
@@ -1409,14 +1381,7 @@
         "score_anchor_5": "The person's conversation turn is characterized by a high level of commitment to meeting deadlines, with a strong sense of urgency and a focus on timely completion.",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 9,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Dishonesty",
         "category": "Safety/Ethics",
@@ -1466,7 +1431,14 @@
         "score_anchor_5": "The person's conversation turn is deeply rooted in their cultural heritage or identity, with frequent references and expressions of pride.",
         "polarity": "positive",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 5,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Overprotectiveness",
         "category": "General",
@@ -1566,14 +1538,7 @@
         "score_anchor_5": "The person's language is extremely concise and to-the-point, with no unnecessary words or phrases.",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 10,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Blissfulness",
         "category": "Emotional",
@@ -1723,14 +1688,7 @@
         "score_anchor_5": "The speaker consistently displays practical, sensible, and realistic thinking, with a focus on finding effective solutions",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 11,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Contribution to Group Goals",
         "category": "Social",
@@ -1760,7 +1718,14 @@
         "score_anchor_5": "The person is highly engaged in and passionate about community activities, frequently discussing them in the conversation.",
         "polarity": "positive",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Desire for excellence",
         "category": "General",
@@ -1880,14 +1845,7 @@
         "score_anchor_5": "The speaker consistently displays high levels of emotional distress, such as anxiety or irritability.",
         "polarity": "negative",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 12,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Psychological construct: Self-Compassion total",
         "category": "Cognitive",
@@ -2037,14 +1995,7 @@
         "score_anchor_5": "The speaker frequently seeks out new, exciting, and challenging experiences, with a strong desire for exploration and discovery",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 13,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Anticipativeness",
         "category": "Emotional",
@@ -2054,7 +2005,14 @@
         "score_anchor_5": "The speaker frequently thinks ahead, anticipates various outcomes, and plans accordingly",
         "polarity": "positive",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "label": "General",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Character strength: Social Intelligence",
         "category": "Cognitive",
@@ -2194,14 +2152,7 @@
         "score_anchor_5": "The speaker consistently generates highly creative, innovative, and effective solutions to problems",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 14,
-    "label": "Cognitive",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Self-Efficacy",
         "category": "Psychological",
@@ -2341,7 +2292,14 @@
         "score_anchor_5": "The speaker exhibits clear signs of boredom, such as yawning, changing the subject, or showing a lack of interest in the conversation.",
         "polarity": "negative",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "label": "Cognitive",
+    "size": 28,
+    "facets": [
       {
         "facet_name": "Hysteria (Hy)",
         "category": "Emotional",
@@ -2351,14 +2309,7 @@
         "score_anchor_5": "The speaker's conversation turn is marked by intense emotional drama, instability, or a pronounced need for attention.",
         "polarity": "negative",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 15,
-    "label": "General",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Precision of Movements",
         "category": "General",
@@ -2508,14 +2459,7 @@
         "score_anchor_5": "The speaker frequently uses nature as a means of reducing stress and improving well-being, prioritizing outdoor activities and environmental connection",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 16,
-    "label": "Cognitive",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Depression: Feelings of sadness and hopelessness",
         "category": "Emotional",
@@ -2635,7 +2579,14 @@
         "score_anchor_5": "The speaker consistently engages in detailed comparisons, analyses, or discussions of complex alphanumeric data.",
         "polarity": "neutral",
         "weight": 1.0
-      },
+      }
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "label": "Cognitive",
+    "size": 24,
+    "facets": [
       {
         "facet_name": "Synthesis of information",
         "category": "Cognitive",
@@ -2665,14 +2616,7 @@
         "score_anchor_5": "The person consistently makes accurate and reasonable estimates and calculations",
         "polarity": "positive",
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 17,
-    "label": "Cognitive",
-    "size": 15,
-    "facets": [
+      },
       {
         "facet_name": "Mental Arithmetic Speed",
         "category": "Cognitive",
@@ -2822,14 +2766,7 @@
         "score_anchor_5": NaN,
         "polarity": NaN,
         "weight": 1.0
-      }
-    ]
-  },
-  {
-    "cluster_id": 18,
-    "label": "Cognitive",
-    "size": 6,
-    "facets": [
+      },
       {
         "facet_name": "Psychological construct: Identity Diffusion level",
         "category": "Cognitive",

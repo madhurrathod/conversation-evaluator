@@ -1,14 +1,21 @@
 """
-Scoring pipeline.
+Scoring pipeline — conversation-level mode.
 
-For each conversation turn, scores it on all inferrable facets using
-Groq llama-3.1-8b-instant (≤16B — satisfies open-weights constraint).
+Scores the ENTIRE conversation in 2 API calls (180 facets each).
+One set of scores per facet represents how that facet manifests
+across the whole conversation; those scores are attached to every turn
+so the output format stays compatible with the UI.
 
-Architecture:
-  - Facets are pre-clustered into 19 batches of ~15 (see clusterer.py)
-  - Per turn: one async API call per cluster (chain-of-thought, NOT one-shot)
-  - Global rate limiter respects Groq free tier (30 req/min)
-  - Results saved per-conversation so scoring can be safely interrupted/resumed
+Why not 1 call? 276 facets × ~20 output tokens = ~5,500 tokens output
+alone, pushing past the per-request limit on free-tier accounts when
+combined with input. 2 calls of 180 facets each (~4,500 tokens/call)
+is safe on all accounts.
+
+Token budget:
+  2 calls × ~4,500 tokens × 50 convos = ~450,000 tokens total
+  → fits in ONE free-tier account (500k/day)
+
+Model: llama-3.1-8b-instant (open-weights ≤16B — satisfies assignment constraint)
 
 Output: results/<conv_id>_scores.json
 
@@ -21,104 +28,128 @@ import asyncio
 import json
 import re
 import sys
-from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+import pandas as pd
 from groq import AsyncGroq
 
 CONVERSATIONS_DIR = Path("conversations")
-RESULTS_DIR = Path("results")
-INDEX_FILE = CONVERSATIONS_DIR / "index.json"
-CLUSTERS_JSON = Path("data/facets_clusters.json")
+RESULTS_DIR       = Path("results")
+INDEX_FILE        = CONVERSATIONS_DIR / "index.json"
+REGISTRY_CSV      = Path("data/facets_registry.csv")
 
-SCORING_MODEL = "llama-3.1-8b-instant"   # open-weights, ≤16B
-CALLS_PER_MINUTE = 28                     # Groq free tier = 30; stay under
-CONTEXT_WINDOW = 2                        # prior turns passed as context
+SCORING_MODEL    = "llama-3.1-8b-instant"   # open-weights, ≤16B
+CALLS_PER_MINUTE = 28                        # Groq free tier cap = 30; stay under
+FACETS_PER_CALL  = 138                       # ceil(276/138)=2 calls per conv
+MAX_TOKENS       = 4000                      # 138 × ~12 tokens (1-word reason) ≈ 1,656; total/call ~3,300
+TURNS_CONTEXT    = 5                         # max turns included in conversation snippet
 
 # ---------------------------------------------------------------------------
-# Prompt construction
+# Load facet registry
+# ---------------------------------------------------------------------------
+
+def _load_facets() -> list[dict]:
+    df = pd.read_csv(REGISTRY_CSV)
+    return (
+        df[df["inferrable"] == True][["facet_name", "category"]]
+        .to_dict(orient="records")
+    )
+
+# ---------------------------------------------------------------------------
+# Prompt — 2-step: OBSERVE the full conversation, then SCORE a facet chunk
 # ---------------------------------------------------------------------------
 
 _SYSTEM = (
     "You are an expert conversation analyst and psychometrician. "
-    "Score the highlighted turn on the listed behavioral facets. "
-    "Use structured, evidence-based reasoning before assigning each score. "
+    "Analyse the provided conversation and score the listed behavioral facets. "
+    "Follow the 2-step reasoning process. "
     "Respond ONLY with valid JSON — no markdown, no extra text."
 )
 
 _PROMPT = """\
-=== CONVERSATION CONTEXT (for reference only) ===
-{context_block}
-=== TURN TO SCORE (your target) ===
-Role   : {role}
-Content: \"\"\"{content}\"\"\"
+=== CONVERSATION ===
+{conversation_text}
 
 === TASK ===
-Score the above turn on {n} facets from the theme: **{cluster_label}**
+Step 1 — OBSERVE : In 2 sentences, describe the dominant tone, behaviors, and patterns across this conversation.
+Step 2 — SCORE   : For each facet below, give one score representing how it manifests across the WHOLE conversation.
 
-Follow this 3-step process for EACH facet:
-  1. OBSERVE  — identify specific words, tone, or content in the turn that signal this facet
-  2. REASON   — explain what your observation implies about the level of this facet
-  3. CONCLUDE — assign score 1–5 and confidence 0.0–1.0
+Scale: 1=absent  2=slight  3=moderate  4=clear  5=dominant
+Confidence: 1.0=certain  0.7=fairly sure  0.5=uncertain
 
-Score scale: 1=absent/very low  2=slight  3=moderate  4=clear  5=dominant/very high
-Confidence : 1.0=certain  0.7=fairly sure  0.5=uncertain  0.3=guessing
+=== FACETS TO SCORE ({n}) ===
+{facet_list}
 
-=== FACETS TO SCORE ===
-{facet_block}
+=== CRITICAL OUTPUT RULES ===
+- "r" must be EXACTLY ONE word (e.g. "absent", "moderate", "strong", "dominant", "clear")
+- No sentences, no phrases — one word only
 
-=== SCORE ANCHORS ===
-{anchor_block}
-
-=== OUTPUT (JSON only, no markdown) ===
+=== OUTPUT (strict JSON only) ===
 {{
-{output_skeleton}
+  "_obs": "<2-sentence observation>",
+  "ExampleFacet1": {{"s": 3, "r": "moderate", "c": 0.7}},
+  "ExampleFacet2": {{"s": 1, "r": "absent", "c": 0.9}},
+  "ExampleFacet3": {{"s": 5, "r": "dominant", "c": 0.8}},
+  "<actual_facet_name>": {{"s": <integer 1-5>, "r": "<quoted_word>", "c": <float>}},
+  ... one entry per facet ...
 }}"""
 
 
-def _build_prompt(turn: dict, prior_turns: list[dict], cluster: dict) -> str:
-    # Context block: last N turns (excluding the target)
-    if prior_turns:
-        ctx_lines = []
-        for t in prior_turns:
-            snippet = t["content"][:200] + ("…" if len(t["content"]) > 200 else "")
-            ctx_lines.append(f'[{t["role"].upper()}]: {snippet}')
-        context_block = "\n".join(ctx_lines)
-    else:
-        context_block = "(This is the first turn — no prior context.)"
+def _build_conv_text(turns: list[dict]) -> str:
+    lines = []
+    for t in turns[-TURNS_CONTEXT:]:          # last N turns to keep input compact
+        snippet = t["content"][:120] + ("…" if len(t["content"]) > 120 else "")
+        lines.append(f'[{t["role"].upper()}]: {snippet}')
+    prefix = f"(showing last {TURNS_CONTEXT} of {len(turns)} turns)\n" if len(turns) > TURNS_CONTEXT else ""
+    return prefix + "\n".join(lines)
 
-    facets = cluster["facets"]
-    facet_block = "\n".join(
-        f'{i+1}. **{f["facet_name"]}**: {f.get("description") or "No description."}'
-        for i, f in enumerate(facets)
-    )
-    anchor_block = "\n".join(
-        f'- {f["facet_name"]}: '
-        f'score 1 → {f.get("score_anchor_1") or "very low"} | '
-        f'score 5 → {f.get("score_anchor_5") or "very high"}'
-        for f in facets
-    )
-    output_skeleton = ",\n".join(
-        f'  "{f["facet_name"]}": {{"score": <1-5>, "reasoning": "<one sentence>", "confidence": <0.0-1.0>}}'
-        for f in facets
-    )
 
+def _build_prompt(conversation_text: str, chunk: list[dict]) -> str:
+    facet_list = "\n".join(
+        f'- {f["facet_name"]} [{f["category"]}]'
+        for f in chunk
+    )
     return _PROMPT.format(
-        context_block=context_block,
-        role=turn["role"],
-        content=turn["content"][:800],   # cap to avoid token overflow
-        n=len(facets),
-        cluster_label=cluster["label"],
-        facet_block=facet_block,
-        anchor_block=anchor_block,
-        output_skeleton=output_skeleton,
+        conversation_text=conversation_text,
+        n=len(chunk),
+        facet_list=facet_list,
     )
+
+
+def _parse_response(raw: str, chunk: list[dict]) -> dict:
+    from json_repair import repair_json
+    raw = re.sub(r"^```(?:json)?\n?", "", raw.strip())
+    raw = re.sub(r"\n?```$", "", raw)
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        data = json.loads(repair_json(raw))
+    # Strip any leading "N. " the model may echo from numbered lists
+    data = {re.sub(r"^\d+\.\s+", "", k): v for k, v in data.items()}
+
+    scores = {}
+    for f in chunk:
+        name  = f["facet_name"]
+        entry = data.get(name, {})
+        scores[name] = {
+            "score":      entry.get("s"),
+            "reasoning":  entry.get("r", ""),
+            "confidence": entry.get("c", 0.0),
+        }
+    return scores
+
+
+def _empty_scores(chunk: list[dict]) -> dict:
+    return {
+        f["facet_name"]: {"score": None, "reasoning": "scoring error", "confidence": 0.0}
+        for f in chunk
+    }
 
 
 # ---------------------------------------------------------------------------
-# Rate limiter — token bucket, one-at-a-time acquisition
+# Rate limiter
 # ---------------------------------------------------------------------------
 
 class RateLimiter:
@@ -130,7 +161,7 @@ class RateLimiter:
     async def acquire(self) -> None:
         async with self._lock:
             loop = asyncio.get_event_loop()
-            now = loop.time()
+            now  = loop.time()
             wait = self._interval - (now - self._last)
             if wait > 0:
                 await asyncio.sleep(wait)
@@ -138,17 +169,16 @@ class RateLimiter:
 
 
 # ---------------------------------------------------------------------------
-# Core scoring functions
+# Core — 2 API calls per conversation
 # ---------------------------------------------------------------------------
 
-async def _score_cluster(
-    turn: dict,
-    prior_turns: list[dict],
-    cluster: dict,
+async def _score_chunk(
+    conversation_text: str,
+    chunk: list[dict],
     client: AsyncGroq,
     rate_limiter: RateLimiter,
 ) -> dict:
-    prompt = _build_prompt(turn, prior_turns, cluster)
+    prompt = _build_prompt(conversation_text, chunk)
     await rate_limiter.acquire()
 
     for attempt in range(3):
@@ -160,98 +190,89 @@ async def _score_cluster(
                     {"role": "user",   "content": prompt},
                 ],
                 temperature=0.1,
-                max_tokens=2500,
+                max_tokens=MAX_TOKENS,
             )
             raw = resp.choices[0].message.content.strip()
-            raw = re.sub(r"^```(?:json)?\n?", "", raw)
-            raw = re.sub(r"\n?```$", "", raw)
-            return json.loads(raw)
+            return _parse_response(raw, chunk)
 
         except json.JSONDecodeError as exc:
             if attempt < 2:
                 await asyncio.sleep(3 * (attempt + 1))
             else:
-                print(f"        [warn] JSON parse failed for cluster '{cluster['label']}': {exc}")
-                return _empty_cluster_scores(cluster)
+                print(f"        [warn] JSON parse failed: {exc}")
 
         except Exception as exc:
             err = str(exc)
-            is_rate = "rate_limit" in err or "429" in err
-            wait = (60 if is_rate else 5) * (attempt + 1)
             if attempt < 2:
-                await asyncio.sleep(wait)
+                wait = 10 if ("rate_limit" in err or "429" in err) else 3
+                await asyncio.sleep(wait * (attempt + 1))
             else:
-                print(f"        [warn] cluster '{cluster['label']}' failed: {exc}")
-                return _empty_cluster_scores(cluster)
+                print(f"        [warn] chunk failed: {exc}")
 
-    return _empty_cluster_scores(cluster)
-
-
-def _empty_cluster_scores(cluster: dict) -> dict:
-    return {
-        f["facet_name"]: {"score": None, "reasoning": "scoring error", "confidence": 0.0}
-        for f in cluster["facets"]
-    }
-
-
-async def score_turn(
-    turn: dict,
-    prior_turns: list[dict],
-    clusters: list[dict],
-    client: AsyncGroq,
-    rate_limiter: RateLimiter,
-) -> dict:
-    # Score all clusters for this turn — one at a time through the rate limiter
-    all_scores: dict = {}
-    for cluster in clusters:
-        result = await _score_cluster(turn, prior_turns, cluster, client, rate_limiter)
-        all_scores.update(result)
-
-    return {
-        "turn_id":      turn["turn_id"],
-        "turn_number":  turn["turn_number"],
-        "role":         turn["role"],
-        "content":      turn["content"],
-        "scores":       all_scores,
-    }
+    return _empty_scores(chunk)
 
 
 async def score_conversation(
     conv: dict,
-    clusters: list[dict],
+    facets: list[dict],
     client: AsyncGroq,
     rate_limiter: RateLimiter,
     output_dir: Path,
 ) -> dict:
-    conv_id = conv["conversation_id"]
+    conv_id  = conv["conversation_id"]
     out_path = output_dir / f"{conv_id}_scores.json"
 
     if out_path.exists():
-        print(f"  {conv_id} — already scored, skipping.")
         with open(out_path) as f:
-            return json.load(f)
+            cached = json.load(f)
+        total = sum(len(t.get("scores", {})) for t in cached.get("turns", []))
+        none_count = sum(
+            1 for t in cached.get("turns", [])
+            for v in t.get("scores", {}).values()
+            if v.get("score") is None
+        )
+        if total > 0 and (none_count / total) < 0.20:
+            print(f"  {conv_id} — already scored ({none_count} errors / {total}), skipping.")
+            return cached
+        print(f"  {conv_id} — {none_count}/{total} None scores, re-scoring ...")
 
     turns = conv["turns"]
-    n_turns = len(turns)
-    n_clusters = len(clusters)
-    print(f"  {conv_id} | {n_turns} turns × {n_clusters} clusters = {n_turns * n_clusters} calls")
+    import math
+    chunks = [facets[i:i + FACETS_PER_CALL] for i in range(0, len(facets), FACETS_PER_CALL)]
+    n_calls = len(chunks)
+    print(f"  {conv_id} | {len(turns)} turns | {n_calls} calls (conversation-level)", end=" ... ", flush=True)
 
-    scored_turns = []
-    for i, turn in enumerate(turns):
-        prior = turns[max(0, i - CONTEXT_WINDOW):i]
-        print(f"    [{i+1}/{n_turns}] {turn['role']} turn ...", end=" ", flush=True)
-        scored = await score_turn(turn, prior, clusters, client, rate_limiter)
-        scored_turns.append(scored)
-        valid = sum(1 for v in scored["scores"].values() if v.get("score") is not None)
-        print(f"{valid}/{len(scored['scores'])} facets scored.")
+    conversation_text = _build_conv_text(turns)
+
+    # Score all facet chunks
+    all_scores: dict = {}
+    for chunk in chunks:
+        result = await _score_chunk(conversation_text, chunk, client, rate_limiter)
+        all_scores.update(result)
+
+    valid = sum(1 for v in all_scores.values() if v.get("score") is not None)
+    print(f"{valid}/{len(all_scores)} facets scored.")
+
+    # Apply same conversation-level scores to every turn
+    scored_turns = [
+        {
+            "turn_id":     t["turn_id"],
+            "turn_number": t["turn_number"],
+            "role":        t["role"],
+            "content":     t["content"],
+            "scores":      all_scores,
+        }
+        for t in turns
+    ]
 
     result = {
-        "conversation_id": conv_id,
-        "scenario":        conv["scenario"],
-        "scored_at":       datetime.now(timezone.utc).isoformat(),
-        "model":           SCORING_MODEL,
-        "total_turns":     len(scored_turns),
-        "turns":           scored_turns,
+        "conversation_id":  conv_id,
+        "scenario":         conv["scenario"],
+        "scored_at":        datetime.now(timezone.utc).isoformat(),
+        "model":            SCORING_MODEL,
+        "scoring_mode":     "conversation-level",
+        "total_turns":      len(scored_turns),
+        "turns":            scored_turns,
     }
 
     with open(out_path, "w", encoding="utf-8") as f:
@@ -268,38 +289,39 @@ async def run(api_key: str, target_ids: Optional[list[str]] = None) -> None:
     with open(INDEX_FILE) as f:
         index = json.load(f)
 
-    with open(CLUSTERS_JSON) as f:
-        clusters = json.load(f)
+    facets = _load_facets()
 
     if target_ids:
         index = [c for c in index if c["conversation_id"] in target_ids]
 
+    import math
+    n_calls_per_conv = math.ceil(len(facets) / FACETS_PER_CALL)
+    total_calls = len(index) * n_calls_per_conv
+    total_tokens_est = total_calls * (MAX_TOKENS + 1200)
+
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    client = AsyncGroq(api_key=api_key)
+    client       = AsyncGroq(api_key=api_key)
     rate_limiter = RateLimiter(CALLS_PER_MINUTE)
 
-    total_calls = sum(c["total_turns"] for c in index) * len(clusters)
-    eta_min = total_calls / CALLS_PER_MINUTE
-    print(f"Scoring pipeline")
-    print(f"  Model      : {SCORING_MODEL}  (open-weights ≤16B)")
-    print(f"  Facets     : {sum(c['size'] for c in clusters)} inferrable")
-    print(f"  Clusters   : {len(clusters)}")
-    print(f"  Convs      : {len(index)}")
-    print(f"  Total calls: ~{total_calls:,}")
-    print(f"  ETA        : ~{eta_min:.0f} min at {CALLS_PER_MINUTE} req/min")
+    print(f"Scoring pipeline  (conversation-level, {n_calls_per_conv} calls/conv)")
+    print(f"  Model        : {SCORING_MODEL}  (open-weights ≤16B)")
+    print(f"  Facets       : {len(facets)}")
+    print(f"  Convs        : {len(index)}")
+    print(f"  Total calls  : {total_calls}")
+    print(f"  Tokens est.  : ~{total_tokens_est:,}  ({'fits' if total_tokens_est < 500_000 else 'exceeds'} 500k/day)")
+    print(f"  ETA          : ~{total_calls / CALLS_PER_MINUTE:.0f} min at {CALLS_PER_MINUTE} req/min")
     print()
 
     for conv_info in index:
         conv_path = CONVERSATIONS_DIR / conv_info["file"]
         with open(conv_path) as f:
             conv = json.load(f)
-        await score_conversation(conv, clusters, client, rate_limiter, RESULTS_DIR)
+        await score_conversation(conv, facets, client, rate_limiter, RESULTS_DIR)
 
     print("\nScoring complete.")
 
 
 def _load_api_key() -> str:
-    """Read GROQ_API_KEY from .streamlit/secrets.toml, then env var."""
     import os
     secrets_path = Path(".streamlit/secrets.toml")
     if secrets_path.exists():
@@ -315,6 +337,5 @@ def _load_api_key() -> str:
 
 
 if __name__ == "__main__":
-    # argv[1:] are optional conv_ids to score; omit to score all
     ids = sys.argv[1:] or None
     asyncio.run(run(api_key=_load_api_key(), target_ids=ids))

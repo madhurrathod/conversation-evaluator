@@ -182,6 +182,9 @@ with st.sidebar:
     st.markdown(f"**Scored:** {len(scored_ids)} / {len(index)}")
     st.markdown(f"**Facets:** 276 inferrable")
     st.caption("Run `python -m src.scorer` to score all conversations.")
+    if st.button("🔄 Refresh results", use_container_width=True):
+        st.cache_data.clear()
+        st.rerun()
 
 # ---------------------------------------------------------------------------
 # Load selected conversation
