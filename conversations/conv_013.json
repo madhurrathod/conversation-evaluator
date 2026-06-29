@@ -1,0 +1,45 @@
+{
+  "conversation_id": "conv_013",
+  "scenario": "Emotional Support – Anger & Venting",
+  "persona": "A person furious about workplace injustice who wants to vent, not advice",
+  "context": "AI journaling session",
+  "total_turns": 6,
+  "turns": [
+    {
+      "turn_id": "conv_013_t01",
+      "turn_number": 1,
+      "role": "user",
+      "content": "Ugh, I'm so done with my job, you know? It's just so unfair, my boss is literally the worst, always taking credit for my ideas and never giving me the recognition I deserve, it's like I'm invisible or something."
+    },
+    {
+      "turn_id": "conv_013_t02",
+      "turn_number": 2,
+      "role": "assistant",
+      "content": "I can totally understand why you'd feel that way, it sounds really frustrating. Can you tell me more about what's been going on and how you've been feeling about your job lately, sometimes putting your thoughts into words can help process your emotions?"
+    },
+    {
+      "turn_id": "conv_013_t03",
+      "turn_number": 3,
+      "role": "user",
+      "content": "Honestly, it's just been building up for months, I feel like I'm walking on eggshells all the time, never knowing when my boss is gonna blow up at me for something stupid. And the thing that really gets my blood boiling is that everyone else in the office just sits there and lets it happen, like they're all too scared to say anything."
+    },
+    {
+      "turn_id": "conv_013_t04",
+      "turn_number": 4,
+      "role": "assistant",
+      "content": "That must be really tough for you, feeling like you're shouldering the burden alone. It sounds like the lack of support from your coworkers is almost as upsetting as your boss's behavior, am I getting that right?"
+    },
+    {
+      "turn_id": "conv_013_t05",
+      "turn_number": 5,
+      "role": "user",
+      "content": "Exactly, it's like they're all just pretending everything is fine, but I know they see what's going on, they're not blind. And it's not just about me, it's about the whole work environment, it's so toxic and stressful, I'm starting to feel like I'm losing myself in all of this."
+    },
+    {
+      "turn_id": "conv_013_t06",
+      "turn_number": 6,
+      "role": "assistant",
+      "content": "I think it takes a lot of courage to acknowledge the impact this is having on you, both personally and professionally. Would you like to explore ways to prioritize your own well-being in this situation, or would you rather just keep talking about what's been going on and how you're feeling, I'm here to listen?"
+    }
+  ]
+}

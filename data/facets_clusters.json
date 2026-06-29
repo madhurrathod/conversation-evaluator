@@ -1,0 +1,2895 @@
+[
+  {
+    "cluster_id": 0,
+    "label": "Personality",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Genuine",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn expresses sincerity and authenticity.",
+        "score_anchor_1": "The speaker's words or actions seem insincere, manipulative, or lacking in authenticity.",
+        "score_anchor_3": "The speaker's intentions and feelings are somewhat ambiguous, making it difficult to discern their genuine nature.",
+        "score_anchor_5": "The speaker consistently expresses themselves in a straightforward, honest, and transparent manner, without pretenses.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Unassertiveness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn indicates a failure to express one's needs, wants, or opinions in a direct and clear manner.",
+        "score_anchor_1": "The speaker is direct and clear in expressing their needs and opinions.",
+        "score_anchor_3": "The speaker sometimes struggles to assert themselves but manages to express their needs and opinions to some extent.",
+        "score_anchor_5": "The speaker consistently fails to express their needs, wants, or opinions, avoiding conflict or direct expression.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Warmheartedness",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a conversation turn reflects kindness, empathy, and genuine interest in others' well-being.",
+        "score_anchor_1": "The speaker shows little to no concern for others' feelings or well-being.",
+        "score_anchor_3": "The speaker is occasionally kind and considerate, but it is not a consistent trait.",
+        "score_anchor_5": "The speaker consistently displays warmth, kindness, and a genuine interest in others' well-being.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Civility",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a conversation turn is characterized by politeness, courtesy, and respect for others.",
+        "score_anchor_1": "The speaker is consistently rude, dismissive, or disrespectful, showing no regard for civility.",
+        "score_anchor_3": "The speaker is generally polite but may occasionally lapse into less courteous behavior.",
+        "score_anchor_5": "The speaker consistently exhibits exceptional civility, treating others with respect, kindness, and consideration.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Genialness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn is friendly, approachable, and warm in tone.",
+        "score_anchor_1": "The speaker's tone is cold, distant, or unfriendly, showing no signs of genialness.",
+        "score_anchor_3": "The speaker is generally polite but may not go out of their way to be friendly or welcoming.",
+        "score_anchor_5": "The speaker consistently exhibits a warm, friendly, and approachable tone, making others feel at ease.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Pure Challenge",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn presents a direct, uncompromising, or forceful stance.",
+        "score_anchor_1": "The speaker's approach is accommodating, flexible, and open to compromise, avoiding direct confrontation.",
+        "score_anchor_3": "The speaker occasionally takes a firm stance but is also willing to listen and consider alternative perspectives.",
+        "score_anchor_5": "The speaker consistently adopts a forceful, uncompromising attitude, directly challenging others without hesitation.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Aloofness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn conveys a sense of detachment or distance from others.",
+        "score_anchor_1": "The speaker is highly engaged, showing interest in others and their thoughts, and actively participating in the conversation.",
+        "score_anchor_3": "The speaker is somewhat reserved but still contributes to the conversation, without appearing overly distant or disconnected.",
+        "score_anchor_5": "The speaker consistently appears uninterested, unresponsive, or indifferent to others, creating a sense of emotional distance.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Disrespect",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the extent to which a conversation turn exhibits rudeness, contempt, or a lack of regard for others.",
+        "score_anchor_1": "The speaker treats others with respect, kindness, and consideration, avoiding hurtful or demeaning comments.",
+        "score_anchor_3": "The speaker occasionally uses slightly sarcastic or dismissive language but generally maintains a respectful tone.",
+        "score_anchor_5": "The speaker consistently displays disdain, mockery, or contempt towards others, using derogatory language or tone.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Frankness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn demonstrates openness, honesty, and transparency in communication.",
+        "score_anchor_1": "The speaker appears to be evasive, dishonest, or secretive in their communication, and may withhold information or distort the truth.",
+        "score_anchor_3": "The speaker is generally truthful but may not always be forthcoming or transparent in their communication.",
+        "score_anchor_5": "The speaker exhibits a high degree of openness, honesty, and transparency in their communication, and may express a willingness to share their thoughts, feelings, and experiences with others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Decency",
+        "category": "General",
+        "description": "This facet measures the respectfulness, courtesy, and moral integrity displayed in a conversation turn.",
+        "score_anchor_1": "The turn is offensive, disrespectful, or morally reprehensible, showing a complete lack of decency.",
+        "score_anchor_3": "The turn is generally polite but may lack depth in terms of moral consideration or empathy, being somewhat superficial in its expression of decency.",
+        "score_anchor_5": "The turn is characterized by a high level of decency, demonstrating profound respect, empathy, and moral awareness, contributing positively to the conversation.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Disagreeableness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a person is argumentative, confrontational, or uncooperative in the conversation.",
+        "score_anchor_1": "The person is cooperative, respectful, and open to others' opinions.",
+        "score_anchor_3": "The person occasionally disagrees or argues with others, but is generally respectful.",
+        "score_anchor_5": "The person is consistently argumentative, confrontational, and uncooperative, dominating the conversation with their negative attitude.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cordiality",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a person's conversation turn is characterized by warmth, friendliness, and a positive attitude towards others.",
+        "score_anchor_1": "The person's conversation is cold, distant, or even hostile, showing little regard for others' feelings.",
+        "score_anchor_3": "The person is generally polite and respectful, but may not go out of their way to be friendly or engaging.",
+        "score_anchor_5": "The person consistently displays a warm, welcoming, and genuinely interested attitude towards others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Orderliness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person's conversation turn is organized, structured, and easy to follow.",
+        "score_anchor_1": "The person's language is disorganized and difficult to follow, with many tangents or abrupt changes in topic.",
+        "score_anchor_3": "The person's language is generally organized, but may include some minor digressions or transitions that are not entirely smooth.",
+        "score_anchor_5": "The person's language is extremely well-organized, with a clear and logical structure that is easy to follow.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Equitableness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person treats others fairly and justly in the conversation.",
+        "score_anchor_1": "The person shows blatant disregard for others' feelings and opinions.",
+        "score_anchor_3": "The person is generally respectful but may occasionally interrupt or dismiss others.",
+        "score_anchor_5": "The person consistently treats others with respect, empathy, and fairness.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Desire to influence others",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn is aimed at persuading or influencing the opinions or actions of others.",
+        "score_anchor_1": "The speaker shows no interest in influencing others, instead focusing solely on expressing their own thoughts or feelings.",
+        "score_anchor_3": "The speaker occasionally attempts to persuade others but does so in a relatively subtle or indirect manner.",
+        "score_anchor_5": "The speaker actively and explicitly tries to influence others, using various persuasive strategies to achieve their goals.",
+        "polarity": "neutral",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 1,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Talkativeness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person dominates the conversation with their own thoughts and words.",
+        "score_anchor_1": "The person barely speaks or contributes to the conversation.",
+        "score_anchor_3": "The person participates in the conversation, sharing their thoughts and listening to others.",
+        "score_anchor_5": "The person dominates the conversation, speaking extensively and barely letting others contribute.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Passive-Aggressive",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the extent to which a conversation turn conveys indirect or covert negative feelings or hostility.",
+        "score_anchor_1": "The speaker directly expresses their feelings and needs without any hint of aggression or resentment.",
+        "score_anchor_3": "The speaker's tone is somewhat sarcastic or dismissive, but the underlying negative feelings are not strongly evident.",
+        "score_anchor_5": "The speaker's language is heavily laced with sarcasm, backhanded compliments, or veiled insults, indicating a strong presence of passive-aggressive behavior.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "SelfEsteem",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn reflects confidence, self-worth, or a positive self-image.",
+        "score_anchor_1": "The speaker expresses significant self-doubt, insecurity, or a lack of confidence in their abilities.",
+        "score_anchor_3": "The speaker occasionally displays confidence but also expresses some uncertainty or self-deprecation.",
+        "score_anchor_5": "The speaker consistently demonstrates a strong sense of self-worth, confidence, and faith in their capabilities.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Chivalrousness",
+        "category": "Social",
+        "description": "This facet measures the extent to which a conversation turn displays courteous, honorable, and generous behavior, especially towards others.",
+        "score_anchor_1": "The speaker shows no consideration for others' feelings or needs, prioritizing their own interests.",
+        "score_anchor_3": "The speaker is occasionally courteous but also prioritizes their own needs and desires.",
+        "score_anchor_5": "The speaker consistently displays chivalrous behavior, prioritizing the well-being and dignity of others over their own interests.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Tendency Toward Compromise or Confrontation",
+        "category": "General",
+        "description": "This facet measures the extent to which a person seeks to find common ground and compromise versus confronting or arguing with others in the conversation.",
+        "score_anchor_1": "The person is highly confrontational and argumentative, rarely seeking compromise.",
+        "score_anchor_3": "The person occasionally seeks compromise, but may also be willing to argue or confront others.",
+        "score_anchor_5": "The person consistently seeks to find common ground and compromise, avoiding confrontation whenever possible.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Peacefulness",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a conversation turn promotes or reflects a calm, serene, and non-confrontational atmosphere.",
+        "score_anchor_1": "The turn is aggressive, confrontational, or inflammatory, significantly disrupting the peace.",
+        "score_anchor_3": "The turn is neutral, neither particularly promoting nor disrupting peace, and may touch on sensitive topics without escalation.",
+        "score_anchor_5": "The turn is profoundly peaceful, promoting understanding, empathy, and calmness, and works to de-escalate or avoid conflict.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Exemplariness",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a strong sense of moral character, integrity, or ethical behavior.",
+        "score_anchor_1": "The speaker shows little to no concern for moral character or ethical behavior, and may express selfish or exploitative tendencies.",
+        "score_anchor_3": "The speaker mentions having some moral principles or values but does not exhibit a strong sense of integrity or ethical behavior.",
+        "score_anchor_5": "The speaker exhibits a strong sense of moral character, integrity, and ethical behavior, and may express a desire to act as a role model or inspire others to do the same.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Aestheticism",
+        "category": "General",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their appreciation and valuation of beauty, art, and creative expression.",
+        "score_anchor_1": "The person shows little interest or appreciation for artistic or creative pursuits in their conversation.",
+        "score_anchor_3": "The person occasionally discusses or references artistic or cultural topics, but may not be deeply invested in them.",
+        "score_anchor_5": "The person consistently displays a profound appreciation and love for beauty, art, and creative expression in all its forms.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Big-heartedness",
+        "category": "Social",
+        "description": "This facet measures the extent to which a conversation turn exhibits kindness, generosity, or a willingness to help others.",
+        "score_anchor_1": "The speaker shows no concern for others' well-being, appearing selfish or uncaring.",
+        "score_anchor_3": "The speaker occasionally displays some empathy or willingness to assist others, but it is not a dominant trait.",
+        "score_anchor_5": "The speaker consistently demonstrates a strong sense of compassion, generosity, and a genuine desire to help or support others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Coarseness",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the degree to which a conversation turn contains crude, rude, or off-color language or content.",
+        "score_anchor_1": "The language used is completely respectful and appropriate.",
+        "score_anchor_3": "Some mildly inappropriate language or humor is used, but it is not excessive.",
+        "score_anchor_5": "The conversation turn contains frequent or extreme use of crude, rude, or off-color language or content.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "General Mood and Attitude",
+        "category": "Emotional",
+        "description": "This facet measures the overall emotional tone and attitude a person conveys in a conversation turn, including their affect, demeanor, and language use",
+        "score_anchor_1": "The person consistently expresses a negative, pessimistic, or unhappy attitude, often complaining or criticizing",
+        "score_anchor_3": "The person has a neutral or mixed attitude, occasionally expressing both positive and negative emotions",
+        "score_anchor_5": "The person consistently conveys a positive, optimistic, and enthusiastic attitude, often expressing gratitude or appreciation",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Courageousness",
+        "category": "General",
+        "description": "This facet measures the degree to which a person shows bravery, resilience, or a willingness to take risks in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no courageousness, avoiding challenges, risks, or difficult topics.",
+        "score_anchor_3": "The speaker exhibits a moderate level of courageousness, being willing to discuss some difficult topics or take calculated risks.",
+        "score_anchor_5": "The speaker displays high levels of courageousness, showing bravery, resilience, and a willingness to take bold action or confront challenging situations.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Openness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn exhibits receptivity to new ideas, experiences, or perspectives.",
+        "score_anchor_1": "The speaker is rigid, close-minded, and resistant to new ideas or alternative viewpoints.",
+        "score_anchor_3": "The speaker is somewhat open to new experiences but may also express reservations or skepticism at times.",
+        "score_anchor_5": "The speaker consistently displays a curious, open-minded, and adventurous attitude, embracing new ideas and experiences.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Effeteness",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn is characterized by excessive refinement, delicacy, or affectedness.",
+        "score_anchor_1": "The speaker's tone is straightforward and lacking in pretension, showing no signs of effeteness.",
+        "score_anchor_3": "The speaker may use some elaborate language but generally avoids excessive refinement or affectedness.",
+        "score_anchor_5": "The speaker consistently exhibits an overly refined, delicate, or affected tone, prioritizing style over substance.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Comfort with Vulnerability",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual is comfortable with being vulnerable or open about their feelings and weaknesses in a conversation turn",
+        "score_anchor_1": "The speaker avoids discussing personal feelings or vulnerabilities",
+        "score_anchor_3": "The speaker occasionally shares personal feelings or vulnerabilities, but also maintains some boundaries",
+        "score_anchor_5": "The speaker is very comfortable sharing personal feelings and vulnerabilities, seeing it as a strength",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Sensitivity",
+        "category": "General",
+        "description": "This facet measures how considerate and empathetic the speaker is towards others' feelings and perspectives in a conversation turn.",
+        "score_anchor_1": "The speaker shows no regard for others' feelings or perspectives.",
+        "score_anchor_3": "The speaker acknowledges others' feelings and perspectives, but does not delve deeply into them.",
+        "score_anchor_5": "The speaker is highly attuned to and empathetic towards others' feelings and perspectives.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Quirkiness",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a person's conversation turn is characterized by unconventional or unusual thoughts, behaviors, or expressions.",
+        "score_anchor_1": "The person's conversation is highly conventional and lacking in creativity or originality.",
+        "score_anchor_3": "The person occasionally expresses unusual or creative ideas, but generally stays within established norms.",
+        "score_anchor_5": "The person consistently displays a highly unconventional and innovative approach to thinking and expression.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Brazenness",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a person is bold, impudent, or shamelessly confident in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no brazenness, being modest, humble, or unassuming.",
+        "score_anchor_3": "The speaker exhibits a moderate level of brazenness, being confident and self-assured, but not excessively so.",
+        "score_anchor_5": "The speaker displays high levels of brazenness, being extremely bold, impudent, or shamelessly confident, and disregarding social norms or conventions.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Dignity",
+        "category": "General",
+        "description": "This facet measures the level of respect and self-worth expressed by the speaker in a conversation turn",
+        "score_anchor_1": "The speaker expresses self-deprecation or belittles themselves",
+        "score_anchor_3": "The speaker maintains a neutral tone, neither elevating nor diminishing themselves",
+        "score_anchor_5": "The speaker conveys confidence and self-respect, standing up for their rights and opinions",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Sensitiveness",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn shows emotional sensitivity and empathy towards others.",
+        "score_anchor_1": "The speaker shows no emotional sensitivity or empathy, being indifferent to others' feelings.",
+        "score_anchor_3": "The speaker occasionally acknowledges others' emotions but does not deeply engage with them.",
+        "score_anchor_5": "The speaker's conversation is marked by a high level of emotional sensitivity and empathy, deeply understanding and respecting others' feelings.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Outspokenness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a person expresses their thoughts and opinions freely in a conversation turn",
+        "score_anchor_1": "The person is very quiet and does not express their thoughts or opinions",
+        "score_anchor_3": "The person occasionally expresses their thoughts and opinions, but also listens to others",
+        "score_anchor_5": "The person dominates the conversation, expressing their thoughts and opinions frequently and assertively",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Hostility",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person expresses aggressive, antagonistic, or belligerent attitudes and behaviors in a conversation turn",
+        "score_anchor_1": "The person rarely expresses hostile attitudes or behaviors, and tends to maintain a calm and respectful demeanor",
+        "score_anchor_3": "The person occasionally expresses frustration or annoyance, but also shows ability to manage their emotions and communicate effectively",
+        "score_anchor_5": "The person frequently exhibits aggressive, antagonistic, or belligerent behavior, dominating conversations with hostility",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Impudence",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the extent to which a person is rude, insolent, or disrespectful in the conversation.",
+        "score_anchor_1": "The person is respectful and considerate of others.",
+        "score_anchor_3": "The person occasionally uses slightly rude or sarcastic language, but is generally respectful.",
+        "score_anchor_5": "The person consistently uses rude, insulting, or condescending language, showing a lack of respect for others.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Rebelliousness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a tendency to challenge authority, break rules, or engage in nonconformist behavior.",
+        "score_anchor_1": "The speaker appears to be highly conformist, rule-bound, or respectful of authority, and may express a strong desire to follow social norms.",
+        "score_anchor_3": "The speaker mentions having some tendency to challenge authority or break rules but does not exhibit a strong or consistent pattern of rebellious behavior.",
+        "score_anchor_5": "The speaker exhibits a high degree of rebelliousness, frequently challenging authority, breaking rules, or engaging in nonconformist behavior, and may express a sense of pride or identity in their nonconformity.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Work Styles",
+        "category": "General",
+        "description": "This facet measures the extent to which a person's conversation turn reflects a productive and effective work style, including traits such as organization, time management, and self-motivation.",
+        "score_anchor_1": "The person's language reflects a disorganized and ineffective work style, with many procrastination habits or distractions.",
+        "score_anchor_3": "The person's language reflects a generally productive work style, but may include some minor procrastination habits or time management issues.",
+        "score_anchor_5": "The person's language reflects an extremely productive and effective work style, with strong organization, time management, and self-motivation skills.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Conventional",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a speaker adheres to traditional norms, values, and expectations in a conversation turn",
+        "score_anchor_1": "The speaker frequently challenges or disregards conventional norms and expectations",
+        "score_anchor_3": "The speaker occasionally questions conventional norms but generally adheres to them",
+        "score_anchor_5": "The speaker consistently adheres to and upholds traditional norms, values, and expectations",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Classiness",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates refinement, elegance, and cultural sophistication.",
+        "score_anchor_1": "The speaker's language and behavior are crude, lacking any semblance of refinement or cultural awareness.",
+        "score_anchor_3": "The speaker shows some awareness of cultural norms but may not consistently demonstrate classy behavior.",
+        "score_anchor_5": "The speaker consistently exhibits exceptional classiness, displaying refined taste, cultural sophistication, and elegant communication skills.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Justice-mindedness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person advocates for fairness and equality in their conversation turn.",
+        "score_anchor_1": "The person shows no concern for fairness or equality, and may even express biased or discriminatory views.",
+        "score_anchor_3": "The person occasionally mentions the importance of fairness and equality, but does not elaborate or provide specific examples.",
+        "score_anchor_5": "The person consistently emphasizes the need for fairness and equality, providing concrete examples and advocating for the rights of marginalized groups.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Acidity",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a speaker's tone or language is sharp, critical, or biting in a conversation turn",
+        "score_anchor_1": "The speaker's tone is consistently warm, friendly, and supportive",
+        "score_anchor_3": "The speaker occasionally uses sharp or critical language, but also balances it with more positive or constructive comments",
+        "score_anchor_5": "The speaker frequently uses sharp, critical, or biting language, with little attempt to soften or balance their tone",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Social Boldness",
+        "category": "Social",
+        "description": "This facet measures the degree to which an individual is willing to take social risks and assert themselves in a conversation turn.",
+        "score_anchor_1": "The person is hesitant to contribute to the conversation or share their thoughts and opinions.",
+        "score_anchor_3": "The person participates in the conversation, sharing their thoughts and opinions in a moderate and respectful manner.",
+        "score_anchor_5": "The person dominates the conversation, assertively expressing their thoughts and opinions and taking risks to steer the conversation in a particular direction.",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Self-effacement",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn reflects the speaker's tendency to downplay their own achievements, abilities, or importance.",
+        "score_anchor_1": "The speaker readily acknowledges and takes pride in their accomplishments.",
+        "score_anchor_3": "The speaker may occasionally downplay their achievements, but also acknowledges their strengths.",
+        "score_anchor_5": "The speaker consistently minimizes their own importance, achievements, or abilities.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Submissiveness",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a conversation turn indicates a tendency to yield to others' wishes or demands.",
+        "score_anchor_1": "The speaker assertively expresses their needs and boundaries without yielding to others.",
+        "score_anchor_3": "The speaker sometimes accommodates others but also maintains their own autonomy and assertiveness.",
+        "score_anchor_5": "The speaker consistently prioritizes others' needs over their own, avoiding conflict by yielding to others' demands.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Liberalism",
+        "category": "Personality",
+        "description": "This facet measures the degree of openness to new ideas, social progress, and individual freedom in a conversation turn.",
+        "score_anchor_1": "The speaker holds traditional or conservative views, resisting change and progress.",
+        "score_anchor_3": "The speaker is somewhat open to new ideas, but may still be cautious or uncertain.",
+        "score_anchor_5": "The speaker consistently displays a strong commitment to liberal values, such as social justice and individual freedom.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Drollness",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn exhibits dry, witty, or ironic humor.",
+        "score_anchor_1": "The speaker's tone is completely serious, with no hint of humor or irony.",
+        "score_anchor_3": "The speaker occasionally uses understatement or mild wit, but it is not a dominant feature of their communication style.",
+        "score_anchor_5": "The speaker consistently uses droll, witty, or ironic language to convey their points in an amusing way.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Specialist",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates specialized knowledge or expertise.",
+        "score_anchor_1": "The speaker shows no evidence of specialized knowledge, relying on general information or lacking confidence.",
+        "score_anchor_3": "The speaker occasionally displays some knowledge in a specific area, but it is not a dominant feature of the conversation.",
+        "score_anchor_5": "The speaker consistently demonstrates in-depth, specialized knowledge, using technical terms and complex concepts with ease.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Ardency",
+        "category": "General",
+        "description": "This facet measures the extent to which a person expresses passion, enthusiasm, or intensity in a conversation turn",
+        "score_anchor_1": "The person appears unenthusiastic, apathetic, or disinterested in the conversation",
+        "score_anchor_3": "The person is moderately engaged, showing some interest or enthusiasm",
+        "score_anchor_5": "The person is extremely passionate, enthusiastic, or intense, often expressing strong emotions or convictions",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Esteem Needs",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn reflects a need for self-esteem, recognition, or respect from others.",
+        "score_anchor_1": "The speaker shows no apparent need for external validation or recognition.",
+        "score_anchor_3": "The speaker occasionally seeks praise or recognition, but it is not a dominant theme.",
+        "score_anchor_5": "The speaker's conversation turn is heavily focused on seeking admiration, recognition, or respect from others.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Self-righteousness",
+        "category": "General",
+        "description": "This facet measures the degree to which a person exhibits a self-important, superior, or judgmental attitude towards others in a conversation turn",
+        "score_anchor_1": "The person rarely expresses self-righteous or superior attitudes, and tends to maintain a humble and open-minded demeanor",
+        "score_anchor_3": "The person occasionally expresses confidence or conviction, but also shows ability to listen and consider alternative perspectives",
+        "score_anchor_5": "The person frequently exhibits a self-important, superior, or judgmental attitude, dominating conversations with their own opinions and beliefs",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Bravery",
+        "category": "General",
+        "description": "This facet measures the level of courage or willingness to take risks expressed by the speaker in a conversation turn",
+        "score_anchor_1": "The speaker avoids challenges or shows fear in the face of adversity",
+        "score_anchor_3": "The speaker is willing to take moderate risks, but may also show some hesitation",
+        "score_anchor_5": "The speaker consistently demonstrates courage, standing up for what they believe in despite potential challenges",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Binding foundations index",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a sense of social connection, community, or shared values with others.",
+        "score_anchor_1": "The speaker shows little to no interest in or sense of connection with others, and may appear isolated or disconnected.",
+        "score_anchor_3": "The speaker mentions having some social connections or shared values with others but does not exhibit a strong sense of community or belonging.",
+        "score_anchor_5": "The speaker exhibits a strong sense of social connection, community, and shared values with others, and may express a desire to contribute to or support the well-being of others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cantankerousness",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the degree to which a person is irritable, argumentative, and prone to complaining in a conversation turn",
+        "score_anchor_1": "The person is rarely irritable or argumentative, and tends to maintain a positive and cooperative demeanor",
+        "score_anchor_3": "The person occasionally expresses irritation or argues, but also shows ability to listen and compromise",
+        "score_anchor_5": "The person frequently exhibits irritability, argumentativeness, and a tendency to complain, dominating conversations with negativity",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Mysteriousness",
+        "category": "Personality",
+        "description": "This facet measures the degree to which an individual's conversation turn is enigmatic or difficult to understand.",
+        "score_anchor_1": "The person is straightforward and easy to understand, with no attempt to be mysterious or cryptic.",
+        "score_anchor_3": "The person occasionally uses vague or ambiguous language, but is generally easy to understand.",
+        "score_anchor_5": "The person frequently uses vague or ambiguous language, making it difficult for others to understand their thoughts or intentions.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Type of Support Preferred (Emotional vs. Practical)",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their preference for emotional support, practical support, or a combination of both.",
+        "score_anchor_1": "The person does not express a clear preference for either emotional or practical support in their conversation.",
+        "score_anchor_3": "The person occasionally mentions a need for emotional or practical support, but may not have a strong preference for one over the other.",
+        "score_anchor_5": "The person consistently expresses a clear and specific preference for either emotional support, practical support, or a balanced combination of both.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Sensationalism",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a conversation turn uses exaggerated or provocative language to attract attention.",
+        "score_anchor_1": "The speaker's language is straightforward and factual, without any attempt to sensationalize.",
+        "score_anchor_3": "The speaker uses some emotive language but generally maintains a balanced tone.",
+        "score_anchor_5": "The speaker frequently uses hyperbolic or provocative language to create a strong emotional response.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Structure",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn is organized, logical, and easy to follow.",
+        "score_anchor_1": "The speaker's thoughts are highly disorganized, making it difficult to understand their point.",
+        "score_anchor_3": "The speaker's conversation is somewhat coherent but lacks clear transitions between ideas.",
+        "score_anchor_5": "The speaker's thoughts are well-organized, logical, and easy to follow, with a clear structure to their conversation.",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 4,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Concreteness",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn focuses on specific, tangible, and practical details rather than abstract concepts.",
+        "score_anchor_1": "The conversation turn is highly abstract and lacks concrete examples or details.",
+        "score_anchor_3": "The speaker provides some concrete examples, but also discusses abstract ideas.",
+        "score_anchor_5": "The conversation turn is filled with specific, practical, and detailed information.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Self Perspective",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn reflects self-awareness, introspection, or personal insight.",
+        "score_anchor_1": "The speaker shows little to no self-awareness, failing to recognize their own thoughts, feelings, or motivations.",
+        "score_anchor_3": "The speaker occasionally displays some self-awareness, acknowledging their emotions or thoughts, but may not fully understand their implications.",
+        "score_anchor_5": "The speaker consistently demonstrates a deep understanding of their own perspectives, emotions, and motivations, exhibiting high self-awareness.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Holiness",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a strong sense of spirituality or moral principles.",
+        "score_anchor_1": "The person's conversation turn does not reflect a strong sense of spirituality or moral principles.",
+        "score_anchor_3": "The person's conversation turn occasionally references spiritual or moral principles, but they are not a dominant theme.",
+        "score_anchor_5": "The person's conversation turn is deeply rooted in spiritual or moral principles, with frequent references and a strong sense of conviction.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "SelfDirectedness",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a sense of autonomy and self-direction.",
+        "score_anchor_1": "The person's conversation turn reflects a lack of autonomy or self-direction, with a focus on external guidance or direction.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of autonomy or self-direction, with some ability to set goals and priorities.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of autonomy or self-direction, with a strong sense of purpose and direction.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Patient care orientation",
+        "category": "General",
+        "description": "This facet measures the degree to which a person prioritizes and shows concern for the well-being of others in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no concern for others, focusing primarily on their own needs or interests.",
+        "score_anchor_3": "The speaker exhibits a moderate level of concern, asking about others' well-being or showing interest in their experiences.",
+        "score_anchor_5": "The speaker displays a strong patient care orientation, actively listening, empathizing, and prioritizing the needs of others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Martyrdom",
+        "category": "General",
+        "description": "This facet measures the tendency to sacrifice one's own needs or desires for the benefit of others in a conversation turn.",
+        "score_anchor_1": "The speaker prioritizes their own needs and desires, showing minimal willingness to sacrifice.",
+        "score_anchor_3": "The speaker is somewhat willing to make sacrifices, but may still prioritize their own interests.",
+        "score_anchor_5": "The speaker consistently displays a strong tendency to martyr themselves, prioritizing others' needs above their own.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Clumsiness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person is awkward, inarticulate, or struggles to express themselves effectively in the conversation.",
+        "score_anchor_1": "The person is articulate, clear, and effective in their communication.",
+        "score_anchor_3": "The person occasionally struggles to find the right words or express themselves clearly.",
+        "score_anchor_5": "The person consistently struggles to communicate effectively, using awkward language or failing to convey their intended meaning.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Impartial-mindedness",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a fair and unbiased perspective.",
+        "score_anchor_1": "The person's conversation turn is highly biased or one-sided, with a lack of consideration for alternative perspectives.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of impartiality, with some consideration for alternative perspectives.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of impartiality, with a careful consideration of multiple perspectives and a commitment to fairness.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Depth of Emotional Connections",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a deep and meaningful understanding of others' emotions and experiences.",
+        "score_anchor_1": "The speaker shows little to no interest in or understanding of others' emotions and experiences.",
+        "score_anchor_3": "The speaker demonstrates a moderate ability to understand and empathize with others' emotions, but may not fully grasp the depth or complexity of their experiences.",
+        "score_anchor_5": "The speaker exhibits a profound and nuanced understanding of others' emotions and experiences, able to empathize deeply and provide supportive and insightful responses.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Volunteer Work",
+        "category": "Social",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a commitment to or involvement in volunteer work or community service.",
+        "score_anchor_1": "The speaker shows little to no interest in or involvement with volunteer work or community service, and may express a lack of concern for social causes.",
+        "score_anchor_3": "The speaker mentions having some interest in or involvement with volunteer work but does not exhibit a strong or consistent commitment to community service.",
+        "score_anchor_5": "The speaker exhibits a high degree of commitment to volunteer work or community service, and may express a sense of purpose or fulfillment in their efforts to help others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Dauntlessness",
+        "category": "Personality",
+        "description": "This facet measures the speaker's willingness to take risks and face challenges head-on in a conversation turn.",
+        "score_anchor_1": "The speaker avoids discussing or shows reluctance to take on challenges or risks.",
+        "score_anchor_3": "The speaker is willing to consider taking calculated risks, but also weighs the potential downsides.",
+        "score_anchor_5": "The speaker enthusiastically embraces challenges and is willing to take bold action.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Safety compliance",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the extent to which a conversation turn adheres to established safety protocols and guidelines.",
+        "score_anchor_1": "The speaker ignores or disregards safety rules, showing no concern for potential risks.",
+        "score_anchor_3": "The speaker mentions safety procedures but does not emphasize their importance or provide specific examples.",
+        "score_anchor_5": "The speaker consistently prioritizes safety, providing detailed explanations of safety protocols and their rationale.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Assertiveness and control in relationships",
+        "category": "Social",
+        "description": "This facet measures the degree to which a speaker is direct, assertive, and influential in their interactions with others in a conversation turn",
+        "score_anchor_1": "The speaker is consistently passive, submissive, or lacking in assertiveness",
+        "score_anchor_3": "The speaker occasionally expresses their needs and desires, but also prioritizes the feelings and needs of others",
+        "score_anchor_5": "The speaker frequently uses direct, assertive, and influential communication to achieve their goals and maintain healthy boundaries",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Competition",
+        "category": "General",
+        "description": "This facet measures the extent to which a person's conversation turn reflects a competitive mindset, including traits such as a desire to win or outdo others.",
+        "score_anchor_1": "The person's language reflects a lack of competitiveness, with a focus on cooperation and mutual support.",
+        "score_anchor_3": "The person's language reflects a moderate level of competitiveness, with some emphasis on winning or achieving success, but also a recognition of the importance of teamwork and cooperation.",
+        "score_anchor_5": "The person's language reflects an extremely competitive mindset, with a strong desire to win or outdo others, and a willingness to take risks or push boundaries to achieve success.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Harmfulness",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the degree to which a person's words or actions may cause harm or negative consequences to others in a conversation turn.",
+        "score_anchor_1": "The speaker's words or actions are benign, causing no harm or negative consequences to others.",
+        "score_anchor_3": "The speaker's words or actions may cause some minor harm or negative consequences, but these are unintentional or minimal.",
+        "score_anchor_5": "The speaker's words or actions are intentionally hurtful or cause significant harm to others, such as bullying, mocking, or manipulating.",
+        "polarity": "negative",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 5,
+    "label": "Personality",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Affection",
+        "category": "Emotional",
+        "description": "This facet measures the expression of warmth, empathy, and emotional connection in a conversation turn.",
+        "score_anchor_1": "The speaker appears cold, distant, or unempathetic.",
+        "score_anchor_3": "The speaker shows some emotional connection, but may not fully express warmth or empathy.",
+        "score_anchor_5": "The speaker consistently displays high levels of affection, empathy, and emotional connection.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cunningness",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a speaker is clever, manipulative, or strategic in their interactions with others in a conversation turn",
+        "score_anchor_1": "The speaker is consistently straightforward, honest, and transparent in their interactions",
+        "score_anchor_3": "The speaker occasionally uses clever or strategic language, but also prioritizes honesty and fairness",
+        "score_anchor_5": "The speaker frequently uses manipulative, deceptive, or exploitative tactics to achieve their goals or influence others",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Conformity",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their tendency to conform to societal norms, expectations, and authority.",
+        "score_anchor_1": "The person frequently challenges or disregards authority and societal norms in their conversation.",
+        "score_anchor_3": "The person generally respects authority and conforms to societal expectations, but may occasionally question or deviate from them.",
+        "score_anchor_5": "The person consistently demonstrates a strong desire to fit in and avoid conflict, even if it means sacrificing their own opinions or values.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Hatefulness",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the degree to which an individual expresses hatred or hostility towards others in a conversation turn",
+        "score_anchor_1": "The speaker's words are respectful and considerate of others",
+        "score_anchor_3": "The speaker occasionally uses language that could be perceived as slightly derogatory or dismissive",
+        "score_anchor_5": "The speaker frequently uses highly derogatory or hostile language towards others",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Ethnocentrism",
+        "category": "Personality",
+        "description": "This facet measures the speaker's tendency to view their own culture as superior to others in a conversation turn",
+        "score_anchor_1": "The speaker shows little to no cultural bias, embracing diversity and other perspectives",
+        "score_anchor_3": "The speaker occasionally exhibits cultural bias, but also acknowledges and respects other cultures",
+        "score_anchor_5": "The speaker strongly believes in the superiority of their own culture, often dismissing or devaluing other cultural perspectives",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Big Five facet Openness – Artistic Interests",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a person expresses interest and appreciation for art, music, and other creative pursuits in a conversation turn",
+        "score_anchor_1": "The person shows no interest or appreciation for artistic expressions and may even dismiss them",
+        "score_anchor_3": "The person occasionally mentions or shows mild interest in artistic activities, but it is not a dominant theme",
+        "score_anchor_5": "The person frequently discusses, creates, or enthusiastically engages with artistic expressions, demonstrating a deep appreciation and passion",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Input",
+        "category": "General",
+        "description": "This facet measures the level of engagement and participation the speaker has in the conversation",
+        "score_anchor_1": "The speaker is largely unresponsive or unengaged",
+        "score_anchor_3": "The speaker contributes occasionally, but mostly listens or follows others' leads",
+        "score_anchor_5": "The speaker is highly engaged, actively contributing and driving the conversation forward",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Patience: Resistance to anger",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their ability to remain calm and composed, even in the face of frustration or provocation.",
+        "score_anchor_1": "The person frequently becomes angry, irritated, or defensive in their conversation, with little ability to manage their emotions.",
+        "score_anchor_3": "The person generally remains calm, but may occasionally become frustrated or annoyed, especially in challenging situations.",
+        "score_anchor_5": "The person consistently displays exceptional patience and emotional regulation, remaining calm and composed even in the most trying circumstances.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Individuality",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a speaker expresses their unique thoughts, feelings, and experiences in a conversation turn",
+        "score_anchor_1": "The speaker rarely expresses their own thoughts, feelings, or experiences, instead mirroring others",
+        "score_anchor_3": "The speaker occasionally expresses their individuality but may also seek to fit in or avoid conflict",
+        "score_anchor_5": "The speaker consistently expresses their unique thoughts, feelings, and experiences, even if they differ from those of others",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Selfcontrol",
+        "category": "Personality",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects the ability to regulate their emotions and impulses.",
+        "score_anchor_1": "The person's conversation turn is characterized by a lack of self-control, with impulsive or emotional outbursts.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of self-control, with some ability to regulate their emotions and impulses.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of self-control, with a consistent ability to regulate their emotions and impulses.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Desperation",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a conversation turn conveys a sense of urgency, hopelessness, or distress.",
+        "score_anchor_1": "The speaker appears calm, composed, and in control, showing no signs of desperation or anxiety.",
+        "score_anchor_3": "The speaker occasionally expresses some concern or frustration but does not appear overwhelmed or desperate.",
+        "score_anchor_5": "The speaker consistently displays a sense of extreme urgency, hopelessness, or distress, often accompanied by pleas for help or rescue.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Well-being component: Engagement",
+        "category": "General",
+        "description": "This facet measures the extent to which a person is fully present, interested, and involved in the conversation, as indicated by their verbal and nonverbal cues",
+        "score_anchor_1": "The person appears disengaged, distracted, or uninterested in the conversation, often failing to respond or contribute",
+        "score_anchor_3": "The person is moderately engaged, occasionally showing interest and participating in the conversation, but also drifting off or losing focus",
+        "score_anchor_5": "The person is fully present, highly interested, and actively engaged in the conversation, consistently responding and contributing",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Ethical practices",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the extent to which a conversation turn adheres to ethical principles and standards.",
+        "score_anchor_1": "The speaker shows a blatant disregard for ethical considerations, prioritizing personal gain over moral principles.",
+        "score_anchor_3": "The speaker generally follows ethical guidelines but may occasionally bend or interpret rules for convenience.",
+        "score_anchor_5": "The speaker consistently upholds the highest ethical standards, demonstrating a strong commitment to moral principles and integrity.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Impulsivity",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a conversation turn is characterized by impulsive or spontaneous comments.",
+        "score_anchor_1": "The speaker's responses are thoroughly considered and reflective, showing no signs of impulsivity.",
+        "score_anchor_3": "The speaker sometimes makes spontaneous comments but generally balances these with more thoughtful contributions.",
+        "score_anchor_5": "The speaker frequently makes impulsive or off-the-cuff remarks, often without considering the potential consequences.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Abasement",
+        "category": "General",
+        "description": "This facet measures the degree to which a person exhibits self-deprecation, humility, or a willingness to submit to others in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no abasement, appearing confident, assertive, and unwilling to submit to others.",
+        "score_anchor_3": "The speaker exhibits a moderate level of abasement, being willing to listen to others and consider their perspectives, but not necessarily submitting to them.",
+        "score_anchor_5": "The speaker displays high levels of abasement, excessively self-deprecating, humble, or submissive, and prioritizing others' needs over their own.",
+        "polarity": "neutral",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Significance: Desire to make an impact",
+        "category": "General",
+        "description": "This facet measures the extent to which a person strives to make a meaningful difference or have a significant impact in a conversation turn",
+        "score_anchor_1": "The person shows little or no desire to make an impact or have a significant influence",
+        "score_anchor_3": "The person has a moderate desire to make an impact, but may not always prioritize this goal",
+        "score_anchor_5": "The person has a strong desire to make a significant impact, often striving to inspire, motivate, or influence others",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Moroseness",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a conversation turn expresses gloominess or sullenness.",
+        "score_anchor_1": "The speaker shows no signs of sadness or discontent, appearing cheerful and optimistic.",
+        "score_anchor_3": "The speaker occasionally expresses mild dissatisfaction or neutral feelings, without dominating the conversation.",
+        "score_anchor_5": "The speaker consistently displays a somber or irritable tone, dominating the conversation with negative emotions.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Seeking approval",
+        "category": "General",
+        "description": "This facet measures the need for external validation or recognition in a conversation turn.",
+        "score_anchor_1": "The speaker is self-assured, showing minimal need for external validation.",
+        "score_anchor_3": "The speaker seeks some approval, but is not overly dependent on external recognition.",
+        "score_anchor_5": "The speaker consistently displays a strong need for approval, seeking constant validation and recognition from others.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Determinedness",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a conversation turn displays resolve, firmness, or decisiveness.",
+        "score_anchor_1": "The speaker appears indecisive, lacking direction, or hesitant to commit to a course of action.",
+        "score_anchor_3": "The speaker shows some degree of determination but may waver or express uncertainty at times.",
+        "score_anchor_5": "The speaker consistently demonstrates a strong sense of purpose, resolve, and commitment to their goals or beliefs.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Emotionalism",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a speaker is guided by emotions, intuition, or personal feelings in a conversation turn",
+        "score_anchor_1": "The speaker is consistently logical, rational, and detached in their thinking and decision-making",
+        "score_anchor_3": "The speaker occasionally allows emotions or personal feelings to influence their thoughts or decisions, but also considers more objective factors",
+        "score_anchor_5": "The speaker frequently prioritizes emotions, intuition, or personal feelings over more objective or rational considerations",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Control over situations",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn demonstrates the ability to manage, direct, or influence the course of events.",
+        "score_anchor_1": "The speaker shows no ability to control or direct the conversation, often appearing passive or reactive.",
+        "score_anchor_3": "The speaker occasionally attempts to take control but may struggle to maintain direction or momentum.",
+        "score_anchor_5": "The speaker consistently demonstrates the ability to effectively control and direct the conversation, achieving their intended outcomes.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Vivacity",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a conversation turn is characterized by energy, enthusiasm, and a lively tone.",
+        "score_anchor_1": "The speaker's tone is dull and unenthusiastic, lacking any sense of energy or vivacity.",
+        "score_anchor_3": "The speaker shows some enthusiasm but their overall tone is still relatively subdued or neutral.",
+        "score_anchor_5": "The speaker consistently exhibits a lively, energetic, and engaging tone, conveying their ideas with enthusiasm and passion.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Discontentment",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a speaker expresses dissatisfaction, unhappiness, or frustration in a conversation turn",
+        "score_anchor_1": "The speaker is consistently satisfied, happy, and content with their circumstances",
+        "score_anchor_3": "The speaker occasionally expresses some dissatisfaction or frustration, but also acknowledges positive aspects or potential solutions",
+        "score_anchor_5": "The speaker frequently expresses strong dissatisfaction, unhappiness, or frustration, with little attempt to find positive aspects or solutions",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Multiculturalism",
+        "category": "Social",
+        "description": "This facet measures the extent to which a person values and respects diverse cultures and perspectives in their conversation turn.",
+        "score_anchor_1": "The person expresses little or no interest in diverse cultures, and may even express biased or stereotypical views.",
+        "score_anchor_3": "The person occasionally mentions the importance of cultural diversity, but does not elaborate or provide specific examples.",
+        "score_anchor_5": "The person consistently emphasizes the value of diverse cultures and perspectives, providing concrete examples and advocating for inclusivity and respect.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Compassion",
+        "category": "Social",
+        "description": "This facet measures the extent to which a person expresses empathy, concern, and kindness towards others in a conversation turn",
+        "score_anchor_1": "The person shows little to no compassion or empathy, often appearing indifferent or uncaring",
+        "score_anchor_3": "The person occasionally expresses sympathy or concern, but may not consistently demonstrate empathy or kindness",
+        "score_anchor_5": "The person consistently and deeply expresses compassion, empathy, and kindness, actively seeking to understand and support others",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Decision-Making Confidence",
+        "category": "General",
+        "description": "This facet measures the degree to which a person expresses confidence in their decision-making abilities in a conversation turn.",
+        "score_anchor_1": "The person appears uncertain, hesitant, and lacking in confidence when discussing their decisions.",
+        "score_anchor_3": "The person shows a moderate level of confidence, but may express some doubts or reservations about their choices.",
+        "score_anchor_5": "The person consistently displays strong self-assurance and conviction in their decision-making abilities.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Doggedness",
+        "category": "Personality",
+        "description": "This facet measures the persistence or determination shown by a speaker in pursuing their goals or arguments.",
+        "score_anchor_1": "The speaker shows little persistence, quickly giving up or changing the subject when faced with obstacles or counterarguments.",
+        "score_anchor_3": "The speaker demonstrates a moderate level of persistence, continuing to argue their point but being open to compromise or alternative perspectives.",
+        "score_anchor_5": "The speaker is extremely dogged, refusing to back down and continuously pushing their point even in the face of significant opposition or adversity.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Enthusiasm",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn conveys excitement, interest, or eagerness about a topic.",
+        "score_anchor_1": "The speaker shows no enthusiasm, seeming disinterested or apathetic about the topic.",
+        "score_anchor_3": "The speaker displays a moderate level of interest, neither highly enthusiastic nor disengaged.",
+        "score_anchor_5": "The speaker's conversation is characterized by a high level of enthusiasm, displaying genuine excitement and eagerness about the topic.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Patriotism",
+        "category": "Personality",
+        "description": "This facet measures the degree to which an individual expresses love, loyalty, or devotion to their country in a conversation turn",
+        "score_anchor_1": "The speaker does not express any national pride or loyalty",
+        "score_anchor_3": "The speaker occasionally mentions national pride or loyalty, but it is not a central theme",
+        "score_anchor_5": "The speaker frequently and strongly expresses national pride and loyalty",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Language use",
+        "category": "Linguistic",
+        "description": "This facet measures the speaker's choice of words, tone, and language style in a conversation turn",
+        "score_anchor_1": "The speaker uses simplistic, unclear, or offensive language",
+        "score_anchor_3": "The speaker uses standard, everyday language without notable flair or sophistication",
+        "score_anchor_5": "The speaker uses rich, nuanced, and engaging language, adapting their tone and style to the context",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Affinity",
+        "category": "General",
+        "description": "This facet measures the degree to which a person feels a sense of connection, liking, or fondness towards others in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no affinity, appearing distant, cold, or uninterested in others.",
+        "score_anchor_3": "The speaker exhibits a moderate level of affinity, being friendly and courteous but not necessarily showing strong emotional connection.",
+        "score_anchor_5": "The speaker displays high levels of affinity, showing genuine warmth, empathy, and interest in others, and forming strong emotional bonds.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Social Interaction Skills",
+        "category": "Social",
+        "description": "This facet measures the ability to engage and interact with others in a conversation turn.",
+        "score_anchor_1": "The speaker barely responds or shows no interest in the conversation.",
+        "score_anchor_3": "The speaker participates in the conversation, but may not fully engage or show enthusiasm.",
+        "score_anchor_5": "The speaker is highly engaged, shows genuine interest, and actively contributes to the conversation.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Inversion comfort level",
+        "category": "General",
+        "description": "This facet measures the comfort with ambiguity, uncertainty, or unconventional thinking in a conversation turn.",
+        "score_anchor_1": "The speaker prefers clear, straightforward answers and avoids ambiguity.",
+        "score_anchor_3": "The speaker is somewhat comfortable with uncertainty, but may still seek clarity or structure.",
+        "score_anchor_5": "The speaker is highly comfortable with ambiguity, embracing complexity and uncertainty.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Naivety",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a speaker displays a lack of experience, wisdom, or worldly knowledge in a conversation turn",
+        "score_anchor_1": "The speaker demonstrates a high level of sophistication and worldly knowledge",
+        "score_anchor_3": "The speaker occasionally displays a lack of knowledge or experience, but also shows an ability to learn and adapt",
+        "score_anchor_5": "The speaker frequently displays a lack of knowledge or experience, and seems unaware of the implications or potential consequences",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Conservatism",
+        "category": "General",
+        "description": "This facet measures the extent to which a person holds traditional or conventional views in a conversation turn",
+        "score_anchor_1": "The person holds very progressive or unconventional views, often challenging traditional norms",
+        "score_anchor_3": "The person holds moderate views, balancing traditional and progressive perspectives",
+        "score_anchor_5": "The person holds very traditional or conservative views, often resisting change or new ideas",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Alignment with societal roles",
+        "category": "General",
+        "description": "This facet measures the degree to which a person's conversation turn reflects an understanding of and adherence to traditional societal roles and expectations.",
+        "score_anchor_1": "The person frequently challenges or disregards societal norms and expectations in their conversation.",
+        "score_anchor_3": "The person generally acknowledges and respects societal roles, but may occasionally question or deviate from them.",
+        "score_anchor_5": "The person consistently demonstrates a strong sense of responsibility and duty to fulfill their expected societal role.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Hardworking",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a person's conversation turn reflects a strong work ethic and a willingness to put in effort and dedication to achieve goals.",
+        "score_anchor_1": "The person's language reflects a lack of motivation or work ethic, with many excuses or justifications for not putting in effort.",
+        "score_anchor_3": "The person's language reflects a moderate level of motivation and work ethic, with some emphasis on putting in effort, but also some doubts or uncertainties.",
+        "score_anchor_5": "The person's language reflects an extremely strong work ethic, with a willingness to put in extra effort and dedication to achieve goals, and a focus on continuous learning and improvement.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Merriness",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a speaker is cheerful, lighthearted, and humorous in a conversation turn",
+        "score_anchor_1": "The speaker is consistently serious, somber, and lacking in humor",
+        "score_anchor_3": "The speaker occasionally displays a sense of humor or playfulness, but also discusses more serious topics",
+        "score_anchor_5": "The speaker frequently uses humor, irony, or wit to engage and entertain others, and maintains a lighthearted tone",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Chronic pain presence",
+        "category": "General",
+        "description": "This facet measures the degree to which a person experiences or discusses chronic pain in a conversation turn.",
+        "score_anchor_1": "The speaker shows no indication of chronic pain, appearing healthy and pain-free.",
+        "score_anchor_3": "The speaker mentions some discomfort or pain, but it is not a dominant theme in the conversation.",
+        "score_anchor_5": "The speaker's conversation is dominated by discussions of chronic pain, its impact on their life, and their struggles to manage it.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Regularity of Self-Reflection",
+        "category": "General",
+        "description": "This facet measures the extent to which a person engages in regular self-reflection and introspection in a conversation turn",
+        "score_anchor_1": "The person rarely or never engages in self-reflection or introspection",
+        "score_anchor_3": "The person occasionally engages in self-reflection or introspection, but may not do so regularly",
+        "score_anchor_5": "The person regularly engages in self-reflection and introspection, often examining their thoughts, feelings, and actions",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Risktaking",
+        "category": "Personality",
+        "description": "This facet measures the degree to which a speaker is willing to take risks or engage in uncertain behavior in a conversation turn",
+        "score_anchor_1": "The speaker avoids discussing or engaging in any potentially risky or uncertain topics",
+        "score_anchor_3": "The speaker occasionally discusses or considers risky or uncertain topics, but also expresses caution or hesitation",
+        "score_anchor_5": "The speaker frequently discusses or engages in risky or uncertain topics with enthusiasm and confidence",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Trust in others",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual trusts or has confidence in others in a conversation turn",
+        "score_anchor_1": "The speaker is highly skeptical and distrustful of others",
+        "score_anchor_3": "The speaker has a moderate level of trust, being cautious but also open to building trust",
+        "score_anchor_5": "The speaker has a high level of trust in others, believing in their good intentions and competence",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Flawlessness",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn is free from errors, inconsistencies, or flaws in reasoning or expression.",
+        "score_anchor_1": "The turn contains multiple obvious errors or contradictions that hinder understanding.",
+        "score_anchor_3": "The turn is generally coherent but may contain minor errors or areas for improvement that do not significantly impede comprehension.",
+        "score_anchor_5": "The turn is impeccable, with no discernible errors in logic, grammar, or factual accuracy, presenting a flawless argument or statement.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Happiness",
+        "category": "Emotional",
+        "description": "This facet measures the expression of positive emotions, such as joy or contentment, in a conversation turn.",
+        "score_anchor_1": "The speaker appears unhappy, sad, or depressed.",
+        "score_anchor_3": "The speaker seems neutral, neither expressing strong positive nor negative emotions.",
+        "score_anchor_5": "The speaker consistently displays happiness, enthusiasm, and a positive outlook.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Suspicion",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person is distrustful, skeptical, or questioning of others' motives or intentions in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no suspicion, trusting others and assuming good intentions.",
+        "score_anchor_3": "The speaker exhibits a moderate level of suspicion, being cautious or questioning, but not excessively so.",
+        "score_anchor_5": "The speaker displays high levels of suspicion, being extremely distrustful, skeptical, or paranoid, and questioning others' motives or intentions.",
+        "polarity": "negative",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Impracticalness",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a lack of concern for practicality or feasibility.",
+        "score_anchor_1": "The person's conversation turn is highly practical and focused on feasible solutions.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of concern for practicality, with some consideration for feasibility.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of impracticalness, with a focus on idealistic or unrealistic solutions.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Irritability",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which an individual is prone to feeling or expressing annoyance or frustration in a conversation turn",
+        "score_anchor_1": "The speaker remains calm and composed, even in the face of challenges",
+        "score_anchor_3": "The speaker occasionally shows signs of irritation, but manages to maintain composure",
+        "score_anchor_5": "The speaker frequently expresses annoyance or frustration, often in response to minor issues",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Contentment Levels",
+        "category": "Emotional",
+        "description": "This facet measures the degree of satisfaction or fulfillment in a conversation turn.",
+        "score_anchor_1": "The speaker expresses significant dissatisfaction or discontent.",
+        "score_anchor_3": "The speaker appears somewhat satisfied, but may still have some unmet needs or desires.",
+        "score_anchor_5": "The speaker consistently displays high levels of contentment, feeling fulfilled and satisfied.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Goal-Directed Behavior",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a clear sense of purpose, direction, or motivation towards achieving specific goals.",
+        "score_anchor_1": "The speaker appears to lack direction or motivation, and may express feelings of aimlessness or disinterest in achieving goals.",
+        "score_anchor_3": "The speaker mentions having some goals or aspirations but does not exhibit a strong sense of direction or motivation.",
+        "score_anchor_5": "The speaker exhibits a clear and compelling sense of purpose, direction, and motivation, with well-defined goals and a plan for achieving them.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Perceiving",
+        "category": "General",
+        "description": "This facet measures the ability to observe and interpret sensory information in a conversation turn.",
+        "score_anchor_1": "The speaker appears unaware of their surroundings, neglecting details and sensory input.",
+        "score_anchor_3": "The speaker notices some details, but may not fully appreciate the context or nuances.",
+        "score_anchor_5": "The speaker is highly attuned to their environment, accurately perceiving and interpreting sensory information.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Need for social interaction",
+        "category": "Social",
+        "description": "This facet measures the extent to which a person desires and seeks out social contact, interaction, and connection with others in a conversation turn",
+        "score_anchor_1": "The person tends to avoid social interaction, preferring solitude and rarely initiating or maintaining conversations",
+        "score_anchor_3": "The person has moderate social needs, occasionally seeking out interaction and connection, but also valuing alone time",
+        "score_anchor_5": "The person has a strong desire for social interaction, frequently seeking out and initiating conversations, and thriving in social environments",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Encouraging participation",
+        "category": "Social",
+        "description": "This facet measures the degree to which an individual's conversation turn encourages or invites others to participate.",
+        "score_anchor_1": "The person's conversation turn is dominant or one-sided, with little opportunity for others to participate.",
+        "score_anchor_3": "The person's conversation turn occasionally invites others to participate, but may still be somewhat dominant.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of inclusivity and encouragement, with frequent invitations for others to participate and share their thoughts.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Collectedness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person is calm, composed, and in control of their emotions in the conversation.",
+        "score_anchor_1": "The person is highly emotional, reactive, or volatile.",
+        "score_anchor_3": "The person is generally calm, but may occasionally become upset or defensive.",
+        "score_anchor_5": "The person is consistently calm, composed, and in control of their emotions, even in challenging or stressful situations.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Intrinsic Motivation",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a genuine interest or passion for a topic.",
+        "score_anchor_1": "The person's conversation turn lacks enthusiasm or interest, with a focus on external rewards or pressures.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of interest or passion, with some genuine enthusiasm.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of genuine interest or passion, with a focus on the inherent value of the topic.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Network basics",
+        "category": "General",
+        "description": "This facet measures the extent to which a person demonstrates a basic understanding of networking concepts and terminology in their conversation turn.",
+        "score_anchor_1": "The person shows little or no understanding of networking concepts, and their language is vague or confusing.",
+        "score_anchor_3": "The person demonstrates a basic understanding of networking concepts, but may struggle with more complex or technical information.",
+        "score_anchor_5": "The person consistently demonstrates a strong understanding of networking concepts and terminology, using precise language and technical vocabulary.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Emotional Boundaries",
+        "category": "Emotional",
+        "description": "This facet measures the speaker's ability to maintain healthy emotional limits and distinctions in a conversation turn",
+        "score_anchor_1": "The speaker has difficulty setting or maintaining emotional boundaries, often becoming overly enmeshed or distant",
+        "score_anchor_3": "The speaker generally respects emotional boundaries, but may occasionally overstep or struggle with assertiveness",
+        "score_anchor_5": "The speaker consistently establishes and maintains clear, healthy emotional boundaries, prioritizing their own and others' emotional well-being",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Withdrawnness",
+        "category": "General",
+        "description": "This facet measures the extent to which a person is reserved, distant, or unengaged in a conversation turn",
+        "score_anchor_1": "The person is very engaged, interactive, and responsive in the conversation",
+        "score_anchor_3": "The person is moderately engaged, occasionally contributing to the conversation",
+        "score_anchor_5": "The person is very withdrawn, rarely contributing to the conversation and appearing uninterested",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Sportsmanship rating",
+        "category": "Social",
+        "description": "This facet measures the person's ability to win or lose graciously and respect their opponents in a conversation turn",
+        "score_anchor_1": "The person becomes overly aggressive or dismissive when competing",
+        "score_anchor_3": "The person is generally respectful but may show some frustration in defeat",
+        "score_anchor_5": "The person consistently displays humility in victory and graciousness in defeat",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Joyfulness",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person experiences or expresses happiness, delight, or pleasure in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no joyfulness, appearing neutral, serious, or unhappy.",
+        "score_anchor_3": "The speaker exhibits a moderate level of joyfulness, smiling, laughing, or showing some enthusiasm, but not excessively.",
+        "score_anchor_5": "The speaker displays high levels of joyfulness, being extremely happy, enthusiastic, or delighted, and conveying a strong sense of pleasure or enjoyment.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Meeting Deadlines",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a sense of urgency or commitment to meeting deadlines.",
+        "score_anchor_1": "The person's conversation turn does not reflect a sense of urgency or commitment to meeting deadlines.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of commitment to meeting deadlines, with some sense of urgency.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of commitment to meeting deadlines, with a strong sense of urgency and a focus on timely completion.",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Dishonesty",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the degree to which a person is untruthful or deceptive in a conversation turn",
+        "score_anchor_1": "The person is transparent and honest in their communication",
+        "score_anchor_3": "The person may withhold some information but does not intentionally deceive",
+        "score_anchor_5": "The person frequently lies or distorts the truth to achieve their goals",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Servility",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which an individual exhibits excessive obedience or submissiveness in a conversation turn",
+        "score_anchor_1": "The speaker asserts their opinions and needs clearly and respectfully",
+        "score_anchor_3": "The speaker sometimes prioritizes others' needs over their own, but also maintains some assertiveness",
+        "score_anchor_5": "The speaker consistently prioritizes others' needs and opinions over their own, often to an excessive degree",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Storytelling proficiency",
+        "category": "Linguistic",
+        "description": "This facet measures the speaker's ability to engage and persuade the audience through the effective use of storytelling techniques in a conversation turn.",
+        "score_anchor_1": "The speaker tells stories in a disjointed or unengaging manner.",
+        "score_anchor_3": "The speaker can tell a coherent story, but it may lack engaging elements or a clear point.",
+        "score_anchor_5": "The speaker is a skilled storyteller who can captivate the audience and effectively convey their message.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Decision-making decisiveness",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn reflects the ability to make decisions in a timely and confident manner.",
+        "score_anchor_1": "The speaker is indecisive, struggling to make even simple decisions.",
+        "score_anchor_3": "The speaker sometimes hesitates but generally manages to make decisions after some consideration.",
+        "score_anchor_5": "The speaker's conversation is marked by a high level of decisiveness, making choices confidently and without undue hesitation.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cultural Identity",
+        "category": "Social",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a strong sense of cultural heritage or identity.",
+        "score_anchor_1": "The person does not express a strong sense of cultural identity or heritage in their conversation turn.",
+        "score_anchor_3": "The person occasionally references their cultural heritage or identity, but it is not a dominant theme in their conversation turn.",
+        "score_anchor_5": "The person's conversation turn is deeply rooted in their cultural heritage or identity, with frequent references and expressions of pride.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Overprotectiveness",
+        "category": "General",
+        "description": "This facet measures the degree to which a speaker is excessively cautious, restrictive, or controlling in a conversation turn",
+        "score_anchor_1": "The speaker is consistently relaxed and permissive, with a focus on allowing freedom and autonomy",
+        "score_anchor_3": "The speaker occasionally expresses caution or concern, but also balances it with a willingness to take calculated risks",
+        "score_anchor_5": "The speaker frequently expresses excessive caution, restrictiveness, or a desire to control others, with little consideration for their autonomy or well-being",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Intellect",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a high level of cognitive ability, intellectual curiosity, or love of learning.",
+        "score_anchor_1": "The speaker appears to be uninterested in or unengaged with intellectual pursuits, and may express a lack of curiosity or love of learning.",
+        "score_anchor_3": "The speaker mentions having some interest in or engagement with intellectual pursuits but does not exhibit a strong or consistent pattern of intellectual curiosity.",
+        "score_anchor_5": "The speaker exhibits a high degree of intellect, able to engage in complex and nuanced discussions, and may express a strong desire to learn and explore new ideas and concepts.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Creative resilience",
+        "category": "Psychological",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their ability to adapt and thrive in the face of challenges or setbacks.",
+        "score_anchor_1": "The person becomes easily discouraged or defeated by obstacles, and struggles to find alternative solutions.",
+        "score_anchor_3": "The person shows a moderate ability to cope with challenges, but may require support or guidance to overcome them.",
+        "score_anchor_5": "The person consistently demonstrates a high degree of creative resilience, using setbacks as opportunities for growth and innovation.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Reliance on context",
+        "category": "General",
+        "description": "This facet measures the extent to which a person uses contextual information, such as shared knowledge or previous conversations, to inform their understanding and contributions to the conversation.",
+        "score_anchor_1": "The person rarely or never uses contextual information to inform their contributions.",
+        "score_anchor_3": "The person occasionally uses contextual information to clarify or support their points.",
+        "score_anchor_5": "The person consistently uses contextual information to build on previous conversations, make connections, and deepen understanding.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Ethical standards",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the person's adherence to moral principles and values in a conversation turn",
+        "score_anchor_1": "The person frequently disregards or violates ethical principles",
+        "score_anchor_3": "The person generally acts with integrity but may occasionally compromise their values",
+        "score_anchor_5": "The person consistently upholds high ethical standards and acts with integrity",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Collaboration",
+        "category": "Social",
+        "description": "This facet measures the person's ability to work effectively with others towards a common goal in a conversation turn",
+        "score_anchor_1": "The person has difficulty working with others and may be overly competitive or dominant",
+        "score_anchor_3": "The person can cooperate with others but may struggle with active listening or empathy",
+        "score_anchor_5": "The person consistently demonstrates the ability to collaborate effectively, listening to and valuing the contributions of others",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Negative Affect Frequency",
+        "category": "Emotional",
+        "description": "This facet measures how often a conversation turn expresses negative emotions such as anger, fear, or sadness.",
+        "score_anchor_1": "The speaker's conversation is devoid of negative emotions, focusing on positive or neutral topics.",
+        "score_anchor_3": "The speaker occasionally expresses negative emotions but balances them with positive or neutral statements.",
+        "score_anchor_5": "The speaker's conversation is dominated by expressions of negative emotions, with little to no positive or neutral content.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Character strength: Perseverance",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a person demonstrates perseverance and persistence in the face of challenges or obstacles in their conversation turn.",
+        "score_anchor_1": "The person shows little or no perseverance, and their language is dominated by negative thoughts or a tendency to give up easily.",
+        "score_anchor_3": "The person occasionally expresses a willingness to persevere, but may also express some doubts or uncertainties.",
+        "score_anchor_5": "The person consistently demonstrates strong perseverance and persistence, with a growth mindset and a willingness to overcome obstacles and challenges.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Aesthetic Appreciation",
+        "category": "General",
+        "description": "This facet measures the ability to appreciate and understand artistic or creative expressions in a conversation turn",
+        "score_anchor_1": "The person shows little or no appreciation for artistic or creative expressions",
+        "score_anchor_3": "The person has a moderate appreciation for artistic or creative expressions, but may not fully understand their significance",
+        "score_anchor_5": "The person has a deep and nuanced appreciation for artistic or creative expressions, often analyzing and interpreting their meaning",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Brevity",
+        "category": "Linguistic",
+        "description": "This facet measures the ability to convey thoughts and ideas concisely and efficiently in a conversation turn.",
+        "score_anchor_1": "The person's language is overly verbose and rambling, with many unnecessary words or tangents.",
+        "score_anchor_3": "The person's language is generally clear and concise, but may occasionally include some unnecessary details or asides.",
+        "score_anchor_5": "The person's language is extremely concise and to-the-point, with no unnecessary words or phrases.",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 10,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Blissfulness",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a person expresses happiness and joy in a conversation turn",
+        "score_anchor_1": "The person appears unhappy, unenthusiastic, or disinterested in the conversation",
+        "score_anchor_3": "The person is neutral, neither expressing nor suppressing happiness or joy",
+        "score_anchor_5": "The person is extremely happy, enthusiastic, and joyful, often expressing excitement and delight",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Travel-companions diversity",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual prefers or seeks out diverse travel companions in a conversation turn",
+        "score_anchor_1": "The speaker prefers to travel with people from similar backgrounds or with similar interests",
+        "score_anchor_3": "The speaker sometimes travels with diverse groups, but also values traveling with like-minded individuals",
+        "score_anchor_5": "The speaker actively seeks out diverse travel companions and values the experiences and perspectives they bring",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Inefficiency",
+        "category": "General",
+        "description": "This facet measures the extent to which a person's conversation turn is characterized by unnecessary complexity, redundancy, or waste.",
+        "score_anchor_1": "The person's language is extremely efficient, with no unnecessary words or phrases.",
+        "score_anchor_3": "The person's language is generally efficient, but may include some minor redundancies or complexities.",
+        "score_anchor_5": "The person's language is extremely inefficient, with many unnecessary words, phrases, or tangents that hinder effective communication.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Originality",
+        "category": "General",
+        "description": "This facet measures the extent to which a person contributes unique and creative ideas to the conversation.",
+        "score_anchor_1": "The person's contributions are unoriginal and lack creativity.",
+        "score_anchor_3": "The person occasionally shares interesting perspectives, but they are not particularly innovative.",
+        "score_anchor_5": "The person consistently brings fresh, innovative, and thought-provoking ideas to the conversation.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Discreteness",
+        "category": "General",
+        "description": "This facet measures the clarity and distinctness of the speaker's thoughts and expressions in a conversation turn",
+        "score_anchor_1": "The speaker's thoughts are vague, disjointed, or difficult to follow",
+        "score_anchor_3": "The speaker's thoughts are somewhat clear, but may lack specificity or organization",
+        "score_anchor_5": "The speaker's thoughts are well-defined, logical, and easy to understand",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Independence",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a person values and demonstrates autonomy, self-reliance, and decision-making capacity in a conversation turn",
+        "score_anchor_1": "The person tends to rely heavily on others for guidance and support, rarely taking initiative or making independent decisions",
+        "score_anchor_3": "The person occasionally asserts their independence, but also seeks input and validation from others",
+        "score_anchor_5": "The person consistently demonstrates autonomy, self-reliance, and confidence in their decision-making, rarely seeking external validation",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Satya Adherence",
+        "category": "General",
+        "description": "This facet measures the speaker's commitment to truthfulness and honesty in a conversation turn, as per the concept of Satya",
+        "score_anchor_1": "The speaker frequently distorts or withholds the truth",
+        "score_anchor_3": "The speaker generally tells the truth, but may occasionally omit or obscure information",
+        "score_anchor_5": "The speaker consistently upholds the highest standards of honesty and transparency, embodying the principle of Satya",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "High-spiritedness",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person exhibits enthusiasm, energy, and a positive outlook in a conversation turn",
+        "score_anchor_1": "The person appears lethargic or disinterested",
+        "score_anchor_3": "The person shows some enthusiasm but may also express negativity or skepticism",
+        "score_anchor_5": "The person consistently displays high energy, optimism, and a positive attitude",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Honesty-humility trait score",
+        "category": "General",
+        "description": "This facet measures the degree to which a speaker exhibits honesty and humility, including their willingness to admit mistakes and learn from feedback",
+        "score_anchor_1": "The speaker exhibits low levels of honesty and humility, often being dishonest or defensive",
+        "score_anchor_3": "The speaker demonstrates moderate levels of honesty and humility, being somewhat open to feedback but also somewhat defensive",
+        "score_anchor_5": "The speaker consistently exhibits high levels of honesty and humility, being transparent, accountable, and open to learning from feedback",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Value orientation: Universalism",
+        "category": "General",
+        "description": "This facet measures the extent to which a person values the well-being and unity of all people in a conversation turn",
+        "score_anchor_1": "The person prioritizes individual or group interests over the well-being of all people",
+        "score_anchor_3": "The person balances individual or group interests with a moderate concern for the well-being of all people",
+        "score_anchor_5": "The person strongly values the well-being and unity of all people, often prioritizing collective interests over individual or group concerns",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Understanding mechanical concepts",
+        "category": "General",
+        "description": "This facet measures the speaker's comprehension and ability to explain mechanical concepts or principles in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no understanding of mechanical concepts.",
+        "score_anchor_3": "The speaker demonstrates a basic understanding of mechanical principles, but may struggle to explain them in detail.",
+        "score_anchor_5": "The speaker displays a deep and nuanced understanding of mechanical concepts and can explain them clearly.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Judging Consequences",
+        "category": "General",
+        "description": "This facet measures the ability to evaluate and consider the potential outcomes or consequences of actions or decisions in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no ability to evaluate consequences, acting impulsively or without consideration for potential outcomes.",
+        "score_anchor_3": "The speaker exhibits a moderate level of consequence evaluation, considering some potential outcomes but not necessarily weighing all options.",
+        "score_anchor_5": "The speaker displays high levels of consequence evaluation, carefully considering multiple potential outcomes and weighing the pros and cons of different actions.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Evaluating Solutions",
+        "category": "General",
+        "description": "This facet measures the extent to which the speaker analyzes and assesses potential solutions in a conversation turn",
+        "score_anchor_1": "The speaker does not consider or evaluate any solutions",
+        "score_anchor_3": "The speaker briefly mentions a few potential solutions without in-depth analysis",
+        "score_anchor_5": "The speaker thoroughly examines multiple solutions, weighing their pros and cons",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Arts and Humanities",
+        "category": "General",
+        "description": "This facet measures the extent to which a person discusses, references, or applies concepts and ideas from the arts and humanities in a conversation turn",
+        "score_anchor_1": "The person rarely mentions or applies arts and humanities concepts, and may even express disdain or disinterest",
+        "score_anchor_3": "The person occasionally references or discusses arts and humanities topics, but may not demonstrate deep understanding or insight",
+        "score_anchor_5": "The person frequently and thoughtfully discusses, references, or applies concepts and ideas from the arts and humanities, demonstrating a rich and nuanced understanding",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Common-sense",
+        "category": "General",
+        "description": "This facet measures the degree to which a speaker displays practical, sensible, and realistic thinking in a conversation turn",
+        "score_anchor_1": "The speaker's thinking is often unrealistic, impractical, or lacking in common sense",
+        "score_anchor_3": "The speaker occasionally displays practical and sensible thinking, but also considers unconventional or creative solutions",
+        "score_anchor_5": "The speaker consistently displays practical, sensible, and realistic thinking, with a focus on finding effective solutions",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 11,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Contribution to Group Goals",
+        "category": "Social",
+        "description": "This facet measures the extent to which a person actively contributes to, supports, and advances the goals and objectives of a group or team in a conversation turn",
+        "score_anchor_1": "The person rarely contributes to or supports group goals, often appearing uncooperative or uninterested",
+        "score_anchor_3": "The person occasionally contributes or offers suggestions, but may not consistently prioritize or support group objectives",
+        "score_anchor_5": "The person consistently and actively contributes to, supports, and advances group goals, demonstrating a strong sense of teamwork and collaboration",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cooperation",
+        "category": "Social",
+        "description": "This facet measures the degree to which a conversation turn demonstrates a willingness to collaborate or work together.",
+        "score_anchor_1": "The speaker shows no interest in collaborating, instead focusing solely on their own perspective or goals.",
+        "score_anchor_3": "The speaker is open to some level of cooperation but may still prioritize their own needs or opinions.",
+        "score_anchor_5": "The speaker actively seeks to collaborate, listening to others and adapting their approach to achieve mutual goals.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Participation in Community Activities",
+        "category": "Social",
+        "description": "This facet measures the extent to which a person engages in and discusses community-related activities and issues in the conversation.",
+        "score_anchor_1": "The person shows no interest or involvement in community activities.",
+        "score_anchor_3": "The person occasionally participates in or discusses community-related issues.",
+        "score_anchor_5": "The person is highly engaged in and passionate about community activities, frequently discussing them in the conversation.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Desire for excellence",
+        "category": "General",
+        "description": "This facet measures the motivation to strive for high achievement and quality in a conversation turn.",
+        "score_anchor_1": "The speaker shows a lack of ambition, settling for mediocrity.",
+        "score_anchor_3": "The speaker has some desire to improve, but may not be highly motivated to excel.",
+        "score_anchor_5": "The speaker consistently displays a strong desire for excellence, striving for high-quality results.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Self-improvement",
+        "category": "General",
+        "description": "This facet measures the degree to which a speaker is motivated to learn, grow, and develop themselves in a conversation turn",
+        "score_anchor_1": "The speaker shows little interest in learning, growing, or developing themselves",
+        "score_anchor_3": "The speaker occasionally expresses a desire for self-improvement, but also acknowledges challenges or limitations",
+        "score_anchor_5": "The speaker frequently discusses their goals, aspirations, and efforts to learn and grow, with a strong motivation to develop themselves",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Hesitation",
+        "category": "General",
+        "description": "This facet measures the degree to which a speaker is uncertain, indecisive, or lacking in confidence in a conversation turn",
+        "score_anchor_1": "The speaker is consistently confident and decisive in their thoughts and opinions",
+        "score_anchor_3": "The speaker occasionally expresses uncertainty or hesitation, but also shows an ability to weigh options and make decisions",
+        "score_anchor_5": "The speaker frequently expresses uncertainty, indecision, or a lack of confidence, and struggles to commit to a particular course of action",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Initiative",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which a person takes the lead, initiates actions, or proposes new ideas in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no initiative, waiting for others to take the lead or propose ideas.",
+        "score_anchor_3": "The speaker exhibits a moderate level of initiative, occasionally proposing ideas or taking the lead, but not consistently.",
+        "score_anchor_5": "The speaker displays high levels of initiative, consistently taking the lead, proposing new ideas, and driving the conversation forward.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Troubleshooting technical issues",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual can identify and solve technical problems in a conversation turn",
+        "score_anchor_1": "The speaker does not attempt to analyze or solve technical issues",
+        "score_anchor_3": "The speaker occasionally attempts to troubleshoot technical problems, with some success",
+        "score_anchor_5": "The speaker effectively identifies and solves complex technical issues",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Sentence Structure",
+        "category": "Linguistic",
+        "description": "This facet measures the complexity, clarity, and effectiveness of sentence structure used in a conversation turn.",
+        "score_anchor_1": "Sentences are simple, short, and lack variety in structure.",
+        "score_anchor_3": "Sentences are of moderate complexity, with some variation in structure, but may lack clarity at times.",
+        "score_anchor_5": "Sentences are complex, well-structured, clear, and effectively convey the speaker's intended meaning.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Immaturity",
+        "category": "General",
+        "description": "This facet measures the degree to which a person exhibits childish or irresponsible behavior in a conversation turn",
+        "score_anchor_1": "The person rarely, if ever, engages in immature behavior",
+        "score_anchor_3": "The person sometimes acts immaturely but also shows signs of growth and responsibility",
+        "score_anchor_5": "The person frequently exhibits tantrums, selfishness, or a lack of accountability",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Compassion Fatigue",
+        "category": "Social",
+        "description": "This facet measures the degree to which a speaker is emotionally drained, desensitized, or disconnected from the needs and feelings of others in a conversation turn",
+        "score_anchor_1": "The speaker is consistently empathetic, compassionate, and engaged with the needs and feelings of others",
+        "score_anchor_3": "The speaker occasionally expresses emotional exhaustion or frustration, but also acknowledges the importance of empathy and compassion",
+        "score_anchor_5": "The speaker frequently appears emotionally drained, desensitized, or disconnected from the needs and feelings of others, with little ability to empathize or provide support",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Social Desirability Bias",
+        "category": "Social",
+        "description": "This facet measures the extent to which a person presents themselves in a socially desirable way, even if it means being dishonest or insincere.",
+        "score_anchor_1": "The person is transparent and honest about their thoughts and feelings, without trying to impress others.",
+        "score_anchor_3": "The person occasionally presents themselves in a more favorable light, but is generally truthful.",
+        "score_anchor_5": "The person consistently tries to present themselves in an overly positive or impressive way, even if it means being dishonest.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Depression Symptoms",
+        "category": "Emotional",
+        "description": "This facet measures the presence of language patterns indicative of depressive symptoms, such as hopelessness or lack of motivation, in a conversation turn.",
+        "score_anchor_1": "The person expresses no depressive symptoms, and their language is optimistic and goal-oriented.",
+        "score_anchor_3": "The person occasionally expresses negative thoughts or feelings, but they are not pervasive or overwhelming.",
+        "score_anchor_5": "The person frequently expresses intense feelings of sadness, hopelessness, or despair, and their language is dominated by negative thoughts and emotions.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Sense-of-coherence score",
+        "category": "Psychological",
+        "description": "This facet measures the degree to which a conversation turn reflects a sense of comprehensibility, manageability, and meaningfulness in life.",
+        "score_anchor_1": "The speaker's conversation indicates a lack of coherence, feeling overwhelmed and without direction.",
+        "score_anchor_3": "The speaker occasionally expresses feelings of control and purpose but also experiences uncertainty.",
+        "score_anchor_5": "The speaker's conversation is characterized by a strong sense of coherence, feeling that life is comprehensible, manageable, and meaningful.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Neuroticism",
+        "category": "Personality",
+        "description": "This facet measures the presence of negative emotional tendencies, such as anxiety or anger, in a conversation turn.",
+        "score_anchor_1": "The speaker appears emotionally stable, with minimal signs of distress.",
+        "score_anchor_3": "The speaker exhibits some emotional instability, but is able to manage their emotions.",
+        "score_anchor_5": "The speaker consistently displays high levels of emotional distress, such as anxiety or irritability.",
+        "polarity": "negative",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 12,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Psychological construct: Self-Compassion total",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a conversation turn demonstrates kindness, understanding, and acceptance towards oneself, particularly in the face of difficulties or setbacks.",
+        "score_anchor_1": "The speaker appears to be highly self-critical, judgmental, or unforgiving towards themselves, and may express feelings of shame or self-doubt.",
+        "score_anchor_3": "The speaker mentions having some self-compassionate tendencies but may not always be kind or understanding towards themselves.",
+        "score_anchor_5": "The speaker exhibits a high degree of self-compassion, able to treat themselves with kindness, understanding, and acceptance, even in the face of challenges or failures.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "HEXACO domain: Honesty-Humility",
+        "category": "General",
+        "description": "This facet measures the degree to which a person is humble, sincere, and unassuming in their conversation turn.",
+        "score_anchor_1": "The person frequently boasts, exaggerates, or manipulates others to get what they want.",
+        "score_anchor_3": "The person is generally straightforward and honest, but may occasionally stretch the truth or show off.",
+        "score_anchor_5": "The person consistently demonstrates humility, modesty, and a willingness to listen and learn from others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Preferred epistemology",
+        "category": "General",
+        "description": "This facet measures the person's approach to knowledge and belief formation in a conversation turn",
+        "score_anchor_1": "The person relies heavily on authority and tradition",
+        "score_anchor_3": "The person considers multiple sources and perspectives but may not critically evaluate them",
+        "score_anchor_5": "The person actively seeks out diverse viewpoints and critically evaluates evidence",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Psychological Safety climate",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a sense of safety, trust, and openness in sharing thoughts, feelings, and experiences with others.",
+        "score_anchor_1": "The speaker appears to feel uncomfortable, anxious, or fearful about sharing their thoughts, feelings, or experiences with others.",
+        "score_anchor_3": "The speaker mentions feeling somewhat comfortable sharing their thoughts and feelings with others but may not always feel fully supported or understood.",
+        "score_anchor_5": "The speaker exhibits a strong sense of psychological safety, feeling comfortable, supported, and encouraged to share their thoughts, feelings, and experiences with others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Types of Mindfulness Techniques Used",
+        "category": "General",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their use of mindfulness techniques, such as meditation or deep breathing.",
+        "score_anchor_1": "The person does not mention or demonstrate any mindfulness practices in their conversation.",
+        "score_anchor_3": "The person occasionally references mindfulness techniques, but may not regularly practice them.",
+        "score_anchor_5": "The person consistently incorporates mindfulness practices into their daily life, and frequently discusses their benefits.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Perseverance",
+        "category": "Behavioral",
+        "description": "This facet measures the ability to persist in the face of challenges or obstacles in a conversation turn",
+        "score_anchor_1": "The person easily gives up or becomes discouraged when faced with challenges or obstacles",
+        "score_anchor_3": "The person shows moderate persistence, but may occasionally become frustrated or discouraged",
+        "score_anchor_5": "The person is extremely persistent, continuing to strive for goals despite significant challenges or obstacles",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Managing emotions",
+        "category": "Emotional",
+        "description": "This facet measures the ability to recognize, understand, and manage one's own emotions in a conversation turn",
+        "score_anchor_1": "The speaker seems overwhelmed by their emotions and struggles to articulate their thoughts",
+        "score_anchor_3": "The speaker acknowledges their emotions but may not fully understand or effectively manage them",
+        "score_anchor_5": "The speaker demonstrates a high degree of emotional awareness, regulation, and effective expression",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Presence of Spiritual Pain",
+        "category": "General",
+        "description": "This facet measures the degree to which a conversation turn reveals emotional or psychological distress related to spiritual or existential concerns.",
+        "score_anchor_1": "The speaker shows no signs of spiritual pain or distress, and their conversation is free from existential worries.",
+        "score_anchor_3": "The speaker mentions some spiritual or existential concerns but does not seem overly troubled by them.",
+        "score_anchor_5": "The speaker's conversation is dominated by expressions of spiritual pain, despair, or existential crisis, indicating a high level of distress.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Activator: Turning thoughts into action",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates the ability to translate ideas or intentions into concrete actions or plans.",
+        "score_anchor_1": "The speaker appears to struggle with taking action or following through on plans, and may express feelings of procrastination or indecision.",
+        "score_anchor_3": "The speaker mentions having some ideas or intentions but does not exhibit a strong ability to turn them into concrete actions or plans.",
+        "score_anchor_5": "The speaker exhibits a high degree of initiative and follow-through, able to translate ideas into concrete actions and plans, and may express a sense of accomplishment or pride in their achievements.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Ethical leadership rating",
+        "category": "Safety/Ethics",
+        "description": "This facet measures the demonstration of ethical leadership principles, such as integrity and responsibility, in a conversation turn.",
+        "score_anchor_1": "The speaker shows a lack of concern for ethical considerations or prioritizes personal gain.",
+        "score_anchor_3": "The speaker acknowledges the importance of ethics, but may not consistently demonstrate ethical behavior.",
+        "score_anchor_5": "The speaker consistently displays strong ethical principles, such as honesty and fairness, in their words and actions.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Data-sharing consent level",
+        "category": "General",
+        "description": "This facet measures the speaker's willingness to share personal data or information in a conversation turn",
+        "score_anchor_1": "The speaker is extremely hesitant or unwilling to share any personal data",
+        "score_anchor_3": "The speaker is moderately willing to share some personal data, but may have reservations",
+        "score_anchor_5": "The speaker is very open and willing to share personal data, without significant concern",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Anatomy knowledge",
+        "category": "General",
+        "description": "This facet measures the extent to which a conversation turn demonstrates knowledge or understanding of human anatomy.",
+        "score_anchor_1": "The speaker shows no evidence of anatomy knowledge, using incorrect terms or displaying confusion.",
+        "score_anchor_3": "The speaker occasionally references basic anatomical concepts but may not fully understand their relationships or functions.",
+        "score_anchor_5": "The speaker consistently demonstrates in-depth knowledge of human anatomy, accurately describing complex structures and their interactions.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Attachment avoidance score",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which a person avoids emotional intimacy, closeness, or attachment to others in a conversation turn.",
+        "score_anchor_1": "The speaker shows little to no attachment avoidance, being open to emotional intimacy and closeness with others.",
+        "score_anchor_3": "The speaker exhibits a moderate level of attachment avoidance, being somewhat guarded or hesitant to form close relationships, but not excessively so.",
+        "score_anchor_5": "The speaker displays high levels of attachment avoidance, strongly avoiding emotional intimacy, closeness, or attachment to others, and prioritizing independence or self-reliance.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Organized lifestyle",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects a structured and organized approach to life.",
+        "score_anchor_1": "The person's conversation turn is disorganized and lacks clear goals or priorities.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of organization, with some clear goals and priorities.",
+        "score_anchor_5": "The person's conversation turn reflects a high level of organization, with clear goals, priorities, and a structured approach to achieving them.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Adventure-Seeking Behavior",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which a speaker is open to new experiences, willing to take risks, and enthusiastic about exploring novel situations in a conversation turn",
+        "score_anchor_1": "The speaker is consistently cautious, risk-averse, and prefers routine and familiarity",
+        "score_anchor_3": "The speaker occasionally expresses a desire for new experiences or adventures, but also prioritizes safety and security",
+        "score_anchor_5": "The speaker frequently seeks out new, exciting, and challenging experiences, with a strong desire for exploration and discovery",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 13,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Anticipativeness",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which an individual thinks ahead, anticipates outcomes, or plans for the future in a conversation turn",
+        "score_anchor_1": "The speaker focuses primarily on the present moment and does not consider future implications",
+        "score_anchor_3": "The speaker sometimes thinks about the future or anticipates outcomes, but it is not a dominant aspect of the conversation",
+        "score_anchor_5": "The speaker frequently thinks ahead, anticipates various outcomes, and plans accordingly",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Character strength: Social Intelligence",
+        "category": "Cognitive",
+        "description": "This facet measures the speaker's ability to understand and navigate social situations and relationships in a conversation turn",
+        "score_anchor_1": "The speaker shows little awareness of social cues or interpersonal dynamics",
+        "score_anchor_3": "The speaker demonstrates some understanding of social norms, but may not always apply them effectively",
+        "score_anchor_5": "The speaker exhibits a high degree of social intelligence, adeptly navigating complex social situations",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Delegation Ability",
+        "category": "Behavioral",
+        "description": "This facet measures the degree to which a conversation turn demonstrates the ability to effectively assign tasks or responsibilities to others.",
+        "score_anchor_1": "The speaker shows no ability or willingness to delegate tasks, instead trying to handle everything themselves.",
+        "score_anchor_3": "The speaker occasionally delegates tasks but may not provide clear instructions or support.",
+        "score_anchor_5": "The speaker consistently demonstrates the ability to effectively delegate tasks, providing clear guidance and resources to others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Casual lifestyle",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a person prioritizes relaxation, leisure, and enjoyment in their life, as discussed in the conversation.",
+        "score_anchor_1": "The person prioritizes work, productivity, and responsibility over leisure and relaxation.",
+        "score_anchor_3": "The person balances work and leisure, occasionally discussing their hobbies or interests.",
+        "score_anchor_5": "The person consistently prioritizes a casual, relaxed lifestyle, frequently discussing their leisure activities and hobbies.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Attitude toward learning",
+        "category": "General",
+        "description": "This facet measures the speaker's attitude toward learning, including their motivation, curiosity, and openness to new experiences",
+        "score_anchor_1": "The speaker exhibits a negative attitude toward learning, showing disinterest or resistance to new experiences",
+        "score_anchor_3": "The speaker has a moderate attitude toward learning, being somewhat open to new experiences but not actively seeking them out",
+        "score_anchor_5": "The speaker demonstrates a highly positive attitude toward learning, being highly motivated, curious, and open to new experiences",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Delegation skills",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a person effectively assigns tasks, responsibilities, or authority to others in the conversation.",
+        "score_anchor_1": "The person rarely or never delegates tasks or responsibilities to others.",
+        "score_anchor_3": "The person occasionally assigns tasks or responsibilities, but may not provide clear guidance or support.",
+        "score_anchor_5": "The person consistently delegates tasks and responsibilities effectively, providing clear guidance, support, and feedback to others.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Stress Recovery Ability",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual can recover from stress or adversity in a conversation turn",
+        "score_anchor_1": "The speaker seems overwhelmed by stress and unable to cope",
+        "score_anchor_3": "The speaker sometimes struggles with stress but also mentions some coping strategies",
+        "score_anchor_5": "The speaker effectively manages and recovers from stress, demonstrating resilience",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Controlling Reactions",
+        "category": "General",
+        "description": "This facet measures the ability to manage and regulate one's emotional reactions in a conversation turn",
+        "score_anchor_1": "The person has difficulty controlling their emotional reactions, often becoming overly emotional or reactive",
+        "score_anchor_3": "The person has moderate control over their emotional reactions, but may occasionally struggle with regulation",
+        "score_anchor_5": "The person has excellent control over their emotional reactions, remaining calm and composed even in challenging situations",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Non-Verbal Communication Skills",
+        "category": "Linguistic",
+        "description": "This facet measures the speaker's ability to effectively communicate through non-verbal cues, such as body language and tone of voice",
+        "score_anchor_1": "The speaker's non-verbal cues are inconsistent, confusing, or misleading",
+        "score_anchor_3": "The speaker's non-verbal cues are generally consistent with their verbal message but may lack nuance or subtlety",
+        "score_anchor_5": "The speaker's non-verbal cues are highly effective, conveying their intended message with clarity and precision",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Fearfulness: Fear of physical dangers",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a person expresses fear or anxiety about physical harm or danger in the conversation.",
+        "score_anchor_1": "The person shows no concern or fear about physical dangers.",
+        "score_anchor_3": "The person occasionally expresses caution or concern about potential physical risks.",
+        "score_anchor_5": "The person is excessively fearful or anxious about physical dangers, dominating the conversation with their worries.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Compulsive activities",
+        "category": "Behavioral",
+        "description": "This facet measures the extent to which a conversation turn involves discussing or engaging in repetitive, habitual, or obsessive behaviors.",
+        "score_anchor_1": "The speaker does not mention or exhibit any compulsive behaviors or habits.",
+        "score_anchor_3": "The speaker occasionally references a habit or routine but does not appear overly fixated on it.",
+        "score_anchor_5": "The speaker consistently discusses or displays compulsive behaviors, such as repetitive actions or obsessive thoughts.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Material properties knowledge",
+        "category": "General",
+        "description": "This facet measures the extent to which a person demonstrates knowledge and understanding of the properties and characteristics of various materials in a conversation turn",
+        "score_anchor_1": "The person shows little to no knowledge of material properties, often expressing confusion or ignorance",
+        "score_anchor_3": "The person has a moderate level of knowledge, able to discuss some basic properties of common materials",
+        "score_anchor_5": "The person demonstrates extensive and detailed knowledge of material properties, able to discuss complex characteristics and applications",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Childhood Experiences",
+        "category": "General",
+        "description": "This facet measures the relevance and impact of the speaker's childhood experiences on their current thoughts and feelings in a conversation turn",
+        "score_anchor_1": "The speaker does not mention or reflect on their childhood experiences",
+        "score_anchor_3": "The speaker occasionally references their childhood, but it does not significantly influence their current perspective",
+        "score_anchor_5": "The speaker frequently draws on their childhood experiences, using them to inform and shape their current thoughts and feelings",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Spelling Accuracy",
+        "category": "Linguistic",
+        "description": "This facet measures the correctness of spelling in written conversation turns.",
+        "score_anchor_1": "The turn contains numerous spelling errors, making it difficult to understand the intended message.",
+        "score_anchor_3": "The turn may contain a few minor spelling errors but is generally understandable.",
+        "score_anchor_5": "The turn is completely free of spelling errors, with all words correctly spelled.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Creativity in solutions",
+        "category": "General",
+        "description": "This facet measures the speaker's ability to generate innovative and original solutions in a conversation turn",
+        "score_anchor_1": "The speaker relies on conventional or unoriginal solutions, showing little creativity",
+        "score_anchor_3": "The speaker occasionally proposes novel solutions, but they may not always be practical or effective",
+        "score_anchor_5": "The speaker consistently generates highly creative, innovative, and effective solutions to problems",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 14,
+    "label": "Cognitive",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Self-Efficacy",
+        "category": "Psychological",
+        "description": "This facet measures the extent to which a speaker expresses confidence in their ability to accomplish tasks or achieve goals.",
+        "score_anchor_1": "The speaker expresses significant self-doubt or lack of confidence in their abilities.",
+        "score_anchor_3": "The speaker demonstrates a moderate level of confidence, acknowledging both their capabilities and limitations.",
+        "score_anchor_5": "The speaker exudes a strong sense of self-efficacy, expressing unwavering confidence in their ability to succeed in various endeavors.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Numeric Filing Skills",
+        "category": "General",
+        "description": "This facet measures the ability to organize and manage numerical data in a conversation turn.",
+        "score_anchor_1": "The speaker struggles to understand or work with numbers, showing significant difficulty.",
+        "score_anchor_3": "The speaker has some basic numeric skills, but may make errors or show limitations.",
+        "score_anchor_5": "The speaker consistently displays high levels of numeric proficiency, accurately managing and analyzing data.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychoticism",
+        "category": "Personality",
+        "description": "This facet measures the presence of psychotic tendencies, such as irrational thinking or erratic behavior, in a conversation turn.",
+        "score_anchor_1": "The speaker's thoughts and behaviors appear rational and coherent.",
+        "score_anchor_3": "The speaker exhibits some unusual or unconventional thoughts, but they are not severely impaired.",
+        "score_anchor_5": "The speaker displays prominent psychotic symptoms, such as delusions or disorganized thinking.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Role of Spirituality in Community Involvement",
+        "category": "Social",
+        "description": "This facet measures how much a conversation turn emphasizes the role of spirituality in engaging with or contributing to community activities.",
+        "score_anchor_1": "The speaker does not mention spirituality or its connection to community involvement.",
+        "score_anchor_3": "The speaker mentions spirituality as one aspect of their community engagement but does not emphasize it as a primary motivator.",
+        "score_anchor_5": "The speaker's conversation highlights spirituality as a central factor in their community involvement, guiding their actions and decisions.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Burnout Symptoms",
+        "category": "Psychological",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects signs of emotional exhaustion or burnout.",
+        "score_anchor_1": "The person's conversation turn does not reflect any signs of burnout or emotional exhaustion.",
+        "score_anchor_3": "The person's conversation turn reflects some signs of burnout or emotional exhaustion, such as frustration or cynicism.",
+        "score_anchor_5": "The person's conversation turn is dominated by signs of burnout or emotional exhaustion, such as hopelessness or detachment.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Health-literacy level",
+        "category": "General",
+        "description": "This facet measures the person's ability to understand and navigate health information in a conversation turn",
+        "score_anchor_1": "The person struggles to understand basic health concepts and terminology",
+        "score_anchor_3": "The person can comprehend some health information but may have difficulty applying it",
+        "score_anchor_5": "The person has a sophisticated understanding of health concepts and can critically evaluate health information",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Inattentiveness",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which a conversation turn indicates a lack of attention or focus on the topic at hand.",
+        "score_anchor_1": "The speaker is fully engaged and attentive, maintaining focus on the conversation topic.",
+        "score_anchor_3": "The speaker is somewhat distracted but manages to stay on topic most of the time.",
+        "score_anchor_5": "The speaker's conversation is characterized by a significant lack of attention, frequently changing topics or appearing distracted.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Creative risk-taking tendency",
+        "category": "Personality",
+        "description": "This facet measures the extent to which a person is willing to take creative risks and explore new ideas in their conversation turn.",
+        "score_anchor_1": "The person is extremely cautious and risk-averse, and their language is dominated by conventional or traditional ideas.",
+        "score_anchor_3": "The person occasionally expresses a willingness to take creative risks, but may also express some hesitation or uncertainty.",
+        "score_anchor_5": "The person consistently expresses a willingness to take bold creative risks, and their language is characterized by innovative and unconventional thinking.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Depression (DEP)",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a conversation turn expresses feelings of sadness, hopelessness, or loss of interest in activities.",
+        "score_anchor_1": "The speaker shows no signs of sadness or hopelessness and appears to be in a positive mood.",
+        "score_anchor_3": "The speaker mentions feeling somewhat down or blue but does not elaborate or express intense emotional distress.",
+        "score_anchor_5": "The speaker expresses overwhelming feelings of sadness, hopelessness, or despair, and may mention suicidal thoughts or feelings of worthlessness.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Attachment style: Secure",
+        "category": "Psychological",
+        "description": "This facet measures the degree to which a speaker exhibits a secure attachment style, characterized by comfort with intimacy and independence",
+        "score_anchor_1": "The speaker exhibits significant anxiety or avoidance in their relationships, indicating an insecure attachment style",
+        "score_anchor_3": "The speaker is somewhat comfortable with intimacy but may struggle with emotional regulation or independence",
+        "score_anchor_5": "The speaker consistently demonstrates a secure attachment style, being comfortable with intimacy, independence, and emotional expression",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Hypomania (Ma)",
+        "category": "Emotional",
+        "description": "This facet measures the extent to which a conversation turn expresses elevated or expansive mood, increased energy, or reduced need for sleep.",
+        "score_anchor_1": "The speaker shows no signs of elevated mood or increased energy and appears to be in a normal or subdued state.",
+        "score_anchor_3": "The speaker mentions feeling somewhat more energetic or optimistic than usual but does not exhibit extreme or impulsive behavior.",
+        "score_anchor_5": "The speaker exhibits intense feelings of euphoria, increased energy, or reduced need for sleep, and may engage in impulsive or reckless behavior.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Logical Sequence Identification",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a person can identify and describe logical sequences or patterns in their conversation turn.",
+        "score_anchor_1": "The person struggles to identify or describe logical sequences, and their language is vague or confusing.",
+        "score_anchor_3": "The person can generally identify and describe basic logical sequences, but may struggle with more complex or abstract patterns.",
+        "score_anchor_5": "The person can extremely accurately and efficiently identify and describe complex logical sequences, using precise language and logical reasoning.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Rapid cognitive processing",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their ability to quickly process and respond to information.",
+        "score_anchor_1": "The person struggles to keep up with the conversation, frequently needing clarification or repetition.",
+        "score_anchor_3": "The person generally follows the conversation, but may occasionally need a moment to process new information.",
+        "score_anchor_5": "The person consistently displays rapid and effortless cognitive processing, quickly grasping and responding to complex ideas.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Boredom Susceptibility",
+        "category": "Personality",
+        "description": "This facet measures the tendency to experience boredom or disengagement in a conversation turn.",
+        "score_anchor_1": "The speaker shows high interest and engagement in the topic, asking follow-up questions and exploring the subject in depth.",
+        "score_anchor_3": "The speaker appears moderately engaged, responding to questions and comments but not initiating new topics or showing strong enthusiasm.",
+        "score_anchor_5": "The speaker exhibits clear signs of boredom, such as yawning, changing the subject, or showing a lack of interest in the conversation.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Hysteria (Hy)",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a conversation turn reflects emotional instability, dramatics, or an excessive need for attention.",
+        "score_anchor_1": "The speaker's emotions and behavior are stable and even-keel.",
+        "score_anchor_3": "The speaker shows some emotional fluctuation, but it is not extreme.",
+        "score_anchor_5": "The speaker's conversation turn is marked by intense emotional drama, instability, or a pronounced need for attention.",
+        "polarity": "negative",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 15,
+    "label": "General",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Precision of Movements",
+        "category": "General",
+        "description": "This facet measures the person's ability to make precise and controlled movements in a conversation turn",
+        "score_anchor_1": "The person has significant difficulty with motor control, leading to clumsiness or accidents",
+        "score_anchor_3": "The person can make some precise movements but may struggle with fine motor tasks or coordination",
+        "score_anchor_5": "The person consistently demonstrates exceptional precision and control in their movements",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Data Analysis",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which an individual's conversation turn reflects the ability to collect, analyze, and interpret data.",
+        "score_anchor_1": "The person's conversation turn does not reflect any ability to collect, analyze, or interpret data.",
+        "score_anchor_3": "The person's conversation turn reflects a moderate level of ability to collect, analyze, and interpret data, with some basic analytical skills.",
+        "score_anchor_5": "The person's conversation turn is characterized by a high level of ability to collect, analyze, and interpret data, with advanced analytical skills and a strong understanding of statistical concepts.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Slothfulness",
+        "category": "Behavioral",
+        "description": "This facet measures the presence of laziness or lack of motivation in a conversation turn.",
+        "score_anchor_1": "The speaker shows enthusiasm and energy, with a strong desire to take action.",
+        "score_anchor_3": "The speaker appears somewhat apathetic, but may still be willing to engage in activities.",
+        "score_anchor_5": "The speaker consistently displays a lack of motivation, avoiding tasks and responsibilities.",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Comprehension of spoken information",
+        "category": "Linguistic",
+        "description": "This facet measures the ability to understand and process spoken information in a conversation turn",
+        "score_anchor_1": "The person struggles to understand the conversation and frequently asks for clarification",
+        "score_anchor_3": "The person generally understands the conversation, but may occasionally need clarification",
+        "score_anchor_5": "The person quickly and easily understands complex spoken information and responds thoughtfully",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Spatial perception",
+        "category": "Cognitive",
+        "description": "This facet measures the ability to understand and describe spatial relationships and visual information in a conversation turn.",
+        "score_anchor_1": "The person struggles to describe spatial relationships or visual information, and their language is vague or confusing.",
+        "score_anchor_3": "The person can describe basic spatial relationships, but may struggle with more complex or abstract visual information.",
+        "score_anchor_5": "The person can accurately and vividly describe complex spatial relationships and visual information, using precise language and imagery.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Auditory Memory Recall",
+        "category": "Linguistic",
+        "description": "This facet measures the speaker's ability to recall and accurately reproduce information that was previously heard in a conversation turn.",
+        "score_anchor_1": "The speaker struggles to recall even basic information from previous conversations.",
+        "score_anchor_3": "The speaker can recall some information, but may make occasional errors or forget key details.",
+        "score_anchor_5": "The speaker can accurately and consistently recall detailed information from previous conversations.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Decision-making speed",
+        "category": "General",
+        "description": "This facet measures the speed at which a speaker can make decisions, weighing options and considering consequences",
+        "score_anchor_1": "The speaker takes an inordinate amount of time to make decisions, often struggling with indecision",
+        "score_anchor_3": "The speaker makes decisions at a moderate pace, considering some options and consequences",
+        "score_anchor_5": "The speaker can make decisions quickly, efficiently weighing options and considering consequences",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Social Conformity tendency",
+        "category": "Cognitive",
+        "description": "This facet measures the tendency to conform to the opinions, behaviors, or attitudes of others in a conversation turn",
+        "score_anchor_1": "The speaker rarely, if ever, conforms to the opinions or behaviors of others",
+        "score_anchor_3": "The speaker occasionally conforms to the opinions or behaviors of others, but also maintains some independence",
+        "score_anchor_5": "The speaker frequently conforms to the opinions, behaviors, or attitudes of others, even if it means suppressing their own thoughts or feelings",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Social-cognition variable: Faux Pas Recognition accuracy",
+        "category": "Social",
+        "description": "This facet measures the ability to recognize and understand social faux pas, such as inappropriate comments or behaviors",
+        "score_anchor_1": "The speaker rarely recognizes or understands social faux pas, often unintentionally offending others",
+        "score_anchor_3": "The speaker occasionally recognizes social faux pas, but may not fully understand their impact or implications",
+        "score_anchor_5": "The speaker consistently recognizes and understands social faux pas, demonstrating high social cognition and empathy",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Connectedness: Belief in interconnections",
+        "category": "General",
+        "description": "This facet measures the degree to which a person's conversation turn reflects a belief in the interconnectedness of people, ideas, and events.",
+        "score_anchor_1": "The person views things as largely separate and unrelated, with little consideration for the broader context.",
+        "score_anchor_3": "The person occasionally recognizes connections between things, but may not fully appreciate their significance.",
+        "score_anchor_5": "The person consistently demonstrates a deep understanding of the complex relationships between people, ideas, and events.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cooking and Culinary Arts",
+        "category": "General",
+        "description": "This facet measures the speaker's interest, knowledge, or involvement in cooking and culinary arts in a conversation turn",
+        "score_anchor_1": "The speaker shows no interest or knowledge of cooking or culinary arts",
+        "score_anchor_3": "The speaker has some basic knowledge or occasional interest in cooking, but it is not a significant part of their life",
+        "score_anchor_5": "The speaker is highly enthusiastic and knowledgeable about cooking and culinary arts, frequently discussing or engaging in these activities",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Learning Style",
+        "category": "General",
+        "description": "This facet measures the speaker's preferred approach to learning, including their use of visual, auditory, or kinesthetic methods",
+        "score_anchor_1": "The speaker's learning style is unclear or undeveloped, with no apparent preference for visual, auditory, or kinesthetic methods",
+        "score_anchor_3": "The speaker has a moderate learning style, using a combination of visual, auditory, and kinesthetic methods but not consistently",
+        "score_anchor_5": "The speaker has a well-developed and consistent learning style, effectively using visual, auditory, or kinesthetic methods to acquire new knowledge and skills",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Divided Attention Ability",
+        "category": "Cognitive",
+        "description": "This facet measures the speaker's ability to focus on multiple topics or tasks simultaneously in a conversation turn.",
+        "score_anchor_1": "The speaker struggles to focus on more than one topic at a time.",
+        "score_anchor_3": "The speaker can handle multiple topics, but may occasionally lose track of one or more.",
+        "score_anchor_5": "The speaker can effortlessly switch between and manage multiple topics or tasks.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Learning through movement",
+        "category": "General",
+        "description": "This facet measures the degree to which an individual uses physical activity or movement to learn or understand new concepts in a conversation turn",
+        "score_anchor_1": "The speaker does not mention using physical activity to learn or understand new concepts",
+        "score_anchor_3": "The speaker occasionally mentions using physical activity to learn or understand new concepts, but it is not a primary method",
+        "score_anchor_5": "The speaker frequently uses physical activity as a primary method to learn or understand new concepts",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Use of Nature as a Stress Reliever",
+        "category": "General",
+        "description": "This facet measures the degree to which a speaker uses nature as a means of reducing stress and improving well-being",
+        "score_anchor_1": "The speaker rarely, if ever, mentions or utilizes nature as a stress reliever",
+        "score_anchor_3": "The speaker occasionally mentions or utilizes nature as a stress reliever, but may not prioritize it",
+        "score_anchor_5": "The speaker frequently uses nature as a means of reducing stress and improving well-being, prioritizing outdoor activities and environmental connection",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 16,
+    "label": "Cognitive",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Depression: Feelings of sadness and hopelessness",
+        "category": "Emotional",
+        "description": "This facet measures the degree to which a person expresses feelings of sadness, hopelessness, or despair in a conversation turn",
+        "score_anchor_1": "The person expresses optimism and a sense of purpose",
+        "score_anchor_3": "The person may express some sadness but also shows resilience and coping strategies",
+        "score_anchor_5": "The person frequently expresses overwhelming sadness, hopelessness, or a desire to escape their situation",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Memory for Sounds",
+        "category": "Linguistic",
+        "description": "This facet measures the person's ability to recall and recognize sounds in a conversation turn",
+        "score_anchor_1": "The person has difficulty remembering even familiar sounds",
+        "score_anchor_3": "The person can recall some sounds but may struggle with nuances or details",
+        "score_anchor_5": "The person has an exceptional ability to remember and distinguish between various sounds",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Auditory memory",
+        "category": "Linguistic",
+        "description": "This facet measures the ability to recall and process auditory information in a conversation turn.",
+        "score_anchor_1": "The person struggles to recall or process auditory information, frequently asking for clarification or repetition.",
+        "score_anchor_3": "The person is able to recall and process auditory information with moderate accuracy, occasionally asking for clarification.",
+        "score_anchor_5": "The person is able to recall and process auditory information with high accuracy, rarely needing clarification or repetition.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Critical reasoning",
+        "category": "Cognitive",
+        "description": "This facet measures the person's ability to analyze information, identify patterns, and make logical conclusions in a conversation turn",
+        "score_anchor_1": "The person frequently jumps to conclusions or fails to consider alternative perspectives",
+        "score_anchor_3": "The person can analyze some information but may struggle with complex or nuanced issues",
+        "score_anchor_5": "The person consistently demonstrates the ability to analyze information critically and make well-supported conclusions",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Analogies",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a person uses analogies, metaphors, or other figurative language to make points or explain concepts in the conversation.",
+        "score_anchor_1": "The person rarely or never uses analogies or figurative language.",
+        "score_anchor_3": "The person occasionally uses simple analogies or metaphors to illustrate a point.",
+        "score_anchor_5": "The person frequently uses creative and effective analogies to explain complex concepts or make compelling arguments.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Resilience-Trait score",
+        "category": "Cognitive",
+        "description": "This facet measures the ability to cope with and recover from adversity, trauma, or stress in a conversation turn",
+        "score_anchor_1": "The person has difficulty coping with adversity, often becoming overwhelmed or struggling to recover",
+        "score_anchor_3": "The person has moderate resilience, but may occasionally struggle to cope with significant challenges",
+        "score_anchor_5": "The person has a high level of resilience, often bouncing back quickly from adversity and coping effectively with challenging situations",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Economic reasoning",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their ability to think critically and logically about economic concepts and decisions.",
+        "score_anchor_1": "The person's conversation is characterized by a lack of understanding of basic economic principles and concepts.",
+        "score_anchor_3": "The person demonstrates a moderate level of economic literacy, but may struggle with more complex ideas.",
+        "score_anchor_5": "The person consistently displays a sophisticated and nuanced understanding of economic reasoning and decision-making.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Sequential Memory Recall",
+        "category": "General",
+        "description": "This facet measures the ability to recall a sequence of events or information in a conversation turn",
+        "score_anchor_1": "The person struggles to recall even simple sequences of events or information",
+        "score_anchor_3": "The person can recall some sequences of events or information, but may make occasional errors",
+        "score_anchor_5": "The person can quickly and accurately recall complex sequences of events or information",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Eye-Contact avoidance score",
+        "category": "Cognitive",
+        "description": "This facet measures the tendency to avoid eye contact, which can indicate discomfort, dishonesty, or lack of confidence",
+        "score_anchor_1": "The speaker maintains eye contact consistently, indicating confidence and honesty",
+        "score_anchor_3": "The speaker occasionally avoids eye contact, but generally maintains it during conversations",
+        "score_anchor_5": "The speaker frequently avoids eye contact, often looking away or down during conversations",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Hope scale",
+        "category": "Cognitive",
+        "description": "This facet measures the speaker's level of hope and optimism about the future in a conversation turn",
+        "score_anchor_1": "The speaker expresses pervasive hopelessness or despair",
+        "score_anchor_3": "The speaker has a moderate level of hope, but may also express some doubts or uncertainties",
+        "score_anchor_5": "The speaker consistently exhibits a strong sense of hope and optimism, believing in their ability to achieve their goals and create a better future",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Statistical Reasoning",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which a speaker uses data, evidence, or statistical thinking to inform their thoughts and decisions in a conversation turn",
+        "score_anchor_1": "The speaker rarely uses data, evidence, or statistical thinking to support their arguments or decisions",
+        "score_anchor_3": "The speaker occasionally uses data or evidence to inform their thoughts, but also relies on intuition or personal experience",
+        "score_anchor_5": "The speaker frequently uses statistical reasoning, data analysis, and evidence-based thinking to support their arguments and decisions",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Comparing alphanumeric data",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a conversation turn involves discussing or analyzing numerical or alphabetical data.",
+        "score_anchor_1": "The conversation does not involve any comparison or discussion of alphanumeric data.",
+        "score_anchor_3": "The speaker occasionally references or compares some alphanumeric data, but it is not a central aspect of the conversation.",
+        "score_anchor_5": "The speaker consistently engages in detailed comparisons, analyses, or discussions of complex alphanumeric data.",
+        "polarity": "neutral",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Synthesis of information",
+        "category": "Cognitive",
+        "description": "This facet measures the person's ability to integrate and summarize complex information in a conversation turn",
+        "score_anchor_1": "The person struggles to connect disparate pieces of information",
+        "score_anchor_3": "The person can identify some relationships between ideas but may not fully synthesize them",
+        "score_anchor_5": "The person consistently demonstrates the ability to integrate and summarize complex information effectively",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Cultural Intelligence – Behavioral",
+        "category": "Cognitive",
+        "description": "This facet measures the ability to adapt and navigate different cultural contexts in a conversation turn",
+        "score_anchor_1": "The person shows little or no awareness of cultural differences and may unintentionally offend or misunderstand others",
+        "score_anchor_3": "The person has a moderate understanding of cultural differences and may occasionally adapt their behavior to accommodate others",
+        "score_anchor_5": "The person has a high level of cultural intelligence, often adapting their behavior and communication style to effectively navigate diverse cultural contexts",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Estimating Calculations",
+        "category": "Cognitive",
+        "description": "This facet measures the person's ability to make reasonable estimates and calculations in a conversation turn",
+        "score_anchor_1": "The person frequently makes large errors in estimation and calculation",
+        "score_anchor_3": "The person can make rough estimates but may struggle with precision or complex calculations",
+        "score_anchor_5": "The person consistently makes accurate and reasonable estimates and calculations",
+        "polarity": "positive",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 17,
+    "label": "Cognitive",
+    "size": 15,
+    "facets": [
+      {
+        "facet_name": "Mental Arithmetic Speed",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which a person's conversation turn reflects their ability to quickly and accurately perform mental arithmetic calculations.",
+        "score_anchor_1": "The person struggles to perform even simple mental arithmetic calculations, frequently making errors or needing external aids.",
+        "score_anchor_3": "The person can perform basic mental arithmetic calculations, but may need to slow down or use mental shortcuts for more complex problems.",
+        "score_anchor_5": "The person consistently displays rapid and accurate mental arithmetic abilities, effortlessly handling complex calculations and mathematical concepts.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Understanding Mathematical Concepts",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a conversation turn demonstrates a clear understanding of mathematical concepts or principles.",
+        "score_anchor_1": "The speaker shows little to no understanding of mathematical concepts and may struggle to apply basic mathematical principles.",
+        "score_anchor_3": "The speaker demonstrates a moderate understanding of mathematical concepts, able to apply basic principles but struggling with more complex ideas.",
+        "score_anchor_5": "The speaker exhibits a deep and nuanced understanding of mathematical concepts, able to apply complex principles and reason abstractly.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Executive-Function composite",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a conversation turn demonstrates high-level cognitive abilities, such as planning, organization, and self-regulation.",
+        "score_anchor_1": "The speaker appears to struggle with planning, organization, or self-regulation, and may express feelings of disorganization or overwhelm.",
+        "score_anchor_3": "The speaker mentions having some ability to plan, organize, and self-regulate but may not always be effective or efficient in their approach.",
+        "score_anchor_5": "The speaker exhibits a high degree of executive function, able to plan, organize, and self-regulate effectively, and may express a sense of control and mastery over their thoughts, feelings, and behaviors.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Alphabetical filing skills",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a person can accurately and efficiently organize and retrieve information using alphabetical filing systems.",
+        "score_anchor_1": "The person struggles to organize or retrieve information using alphabetical filing systems, and their language is vague or confusing.",
+        "score_anchor_3": "The person can generally organize and retrieve information using alphabetical filing systems, but may make some minor errors or struggle with more complex systems.",
+        "score_anchor_5": "The person can extremely efficiently and accurately organize and retrieve information using alphabetical filing systems, with no errors or difficulties.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Excuse-Making tendency",
+        "category": "Cognitive",
+        "description": "This facet measures the tendency to make excuses or justify one's own behavior, rather than taking responsibility",
+        "score_anchor_1": "The speaker rarely makes excuses, instead taking ownership of their actions and their consequences",
+        "score_anchor_3": "The speaker occasionally makes excuses, but also acknowledges their role in the situation",
+        "score_anchor_5": "The speaker frequently makes excuses, blaming external circumstances or others for their own behavior",
+        "polarity": "negative",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Information Retention",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which a person is able to recall, retain, and apply information from previous conversations or interactions",
+        "score_anchor_1": "The person has difficulty recalling or retaining information, often requiring reminders or repetition",
+        "score_anchor_3": "The person has moderate ability to recall and retain information, occasionally requiring prompts or cues",
+        "score_anchor_5": "The person consistently demonstrates excellent recall and retention of information, able to apply and build upon previous knowledge",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Use of Mathematical Formulas",
+        "category": "Cognitive",
+        "description": "This facet measures the extent to which mathematical formulas are used to explain or support a point in a conversation turn.",
+        "score_anchor_1": "No mathematical concepts or formulas are mentioned.",
+        "score_anchor_3": "Basic mathematical concepts are mentioned, but no complex formulas are used.",
+        "score_anchor_5": "Complex mathematical formulas are accurately used to explain or support a point.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Cognitive measure: Working Memory Index",
+        "category": "Cognitive",
+        "description": "This facet measures the degree to which a conversation turn demonstrates the ability to hold and manipulate information in working memory.",
+        "score_anchor_1": "The speaker struggles to recall or retain information, showing significant difficulties with working memory.",
+        "score_anchor_3": "The speaker can manage basic information but may struggle with more complex or detailed tasks.",
+        "score_anchor_5": "The speaker consistently demonstrates the ability to effectively hold and manipulate information in working memory, handling complex tasks with ease.",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Intelligence Quotient (IQ)",
+        "category": "Cognitive",
+        "description": "This facet measures the speaker's cognitive abilities, such as reasoning, problem-solving, and knowledge acquisition",
+        "score_anchor_1": "The speaker struggles with basic cognitive tasks, such as following instructions or understanding simple concepts",
+        "score_anchor_3": "The speaker demonstrates average cognitive abilities, able to understand and apply everyday knowledge",
+        "score_anchor_5": "The speaker exhibits exceptional cognitive abilities, demonstrating advanced problem-solving skills, critical thinking, and knowledge acquisition",
+        "polarity": "positive",
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Mindfulness facet: Observing",
+        "category": "General",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Defense-mechanism tendency: Introjection",
+        "category": "General",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Social-cognition variable: Cognitive Empathy",
+        "category": "Social",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Social Desirability tendency",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Emotional-intelligence measure: Impulsiveness",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Social-cognition variable: Mentalizing network activation",
+        "category": "Social",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "cluster_id": 18,
+    "label": "Cognitive",
+    "size": 6,
+    "facets": [
+      {
+        "facet_name": "Psychological construct: Identity Diffusion level",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Consummatory Pleasure scale",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Acculturative Stress score",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Perfectionistic Strivings",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Need for Achievement level",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      },
+      {
+        "facet_name": "Psychological construct: Operant-Learning rate",
+        "category": "Cognitive",
+        "description": NaN,
+        "score_anchor_1": NaN,
+        "score_anchor_3": NaN,
+        "score_anchor_5": NaN,
+        "polarity": NaN,
+        "weight": 1.0
+      }
+    ]
+  }
+]

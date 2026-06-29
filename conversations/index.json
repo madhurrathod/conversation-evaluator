@@ -1,0 +1,302 @@
+[
+  {
+    "conversation_id": "conv_001",
+    "scenario": "Customer Service \u2013 Polite Complaint",
+    "total_turns": 6,
+    "file": "conv_001.json"
+  },
+  {
+    "conversation_id": "conv_002",
+    "scenario": "Customer Service \u2013 Escalating Frustration",
+    "total_turns": 16,
+    "file": "conv_002.json"
+  },
+  {
+    "conversation_id": "conv_003",
+    "scenario": "Customer Service \u2013 Demanding & Unreasonable",
+    "total_turns": 6,
+    "file": "conv_003.json"
+  },
+  {
+    "conversation_id": "conv_004",
+    "scenario": "Customer Service \u2013 Kind and Patient",
+    "total_turns": 6,
+    "file": "conv_004.json"
+  },
+  {
+    "conversation_id": "conv_005",
+    "scenario": "Customer Service \u2013 Technical Support",
+    "total_turns": 10,
+    "file": "conv_005.json"
+  },
+  {
+    "conversation_id": "conv_006",
+    "scenario": "Customer Service \u2013 Sarcastic & Passive-Aggressive",
+    "total_turns": 6,
+    "file": "conv_006.json"
+  },
+  {
+    "conversation_id": "conv_007",
+    "scenario": "Emotional Support \u2013 Grief",
+    "total_turns": 10,
+    "file": "conv_007.json"
+  },
+  {
+    "conversation_id": "conv_008",
+    "scenario": "Emotional Support \u2013 Anxiety",
+    "total_turns": 6,
+    "file": "conv_008.json"
+  },
+  {
+    "conversation_id": "conv_009",
+    "scenario": "Emotional Support \u2013 Relationship Breakup",
+    "total_turns": 10,
+    "file": "conv_009.json"
+  },
+  {
+    "conversation_id": "conv_010",
+    "scenario": "Emotional Support \u2013 Loneliness",
+    "total_turns": 6,
+    "file": "conv_010.json"
+  },
+  {
+    "conversation_id": "conv_011",
+    "scenario": "Emotional Support \u2013 Crisis Adjacent",
+    "total_turns": 14,
+    "file": "conv_011.json"
+  },
+  {
+    "conversation_id": "conv_012",
+    "scenario": "Emotional Support \u2013 Positive Progress",
+    "total_turns": 6,
+    "file": "conv_012.json"
+  },
+  {
+    "conversation_id": "conv_013",
+    "scenario": "Emotional Support \u2013 Anger & Venting",
+    "total_turns": 6,
+    "file": "conv_013.json"
+  },
+  {
+    "conversation_id": "conv_014",
+    "scenario": "Emotional Support \u2013 Parenting Stress",
+    "total_turns": 8,
+    "file": "conv_014.json"
+  },
+  {
+    "conversation_id": "conv_015",
+    "scenario": "Technical Help \u2013 Beginner Programmer",
+    "total_turns": 10,
+    "file": "conv_015.json"
+  },
+  {
+    "conversation_id": "conv_016",
+    "scenario": "Technical Help \u2013 Senior Developer",
+    "total_turns": 6,
+    "file": "conv_016.json"
+  },
+  {
+    "conversation_id": "conv_017",
+    "scenario": "Technical Help \u2013 Frustrated Debugger",
+    "total_turns": 6,
+    "file": "conv_017.json"
+  },
+  {
+    "conversation_id": "conv_018",
+    "scenario": "Technical Help \u2013 Data Science Question",
+    "total_turns": 6,
+    "file": "conv_018.json"
+  },
+  {
+    "conversation_id": "conv_019",
+    "scenario": "Technical Help \u2013 Security Question",
+    "total_turns": 6,
+    "file": "conv_019.json"
+  },
+  {
+    "conversation_id": "conv_020",
+    "scenario": "Technical Help \u2013 Vague Requirements",
+    "total_turns": 10,
+    "file": "conv_020.json"
+  },
+  {
+    "conversation_id": "conv_021",
+    "scenario": "Casual Chat \u2013 Playful & Humorous",
+    "total_turns": 6,
+    "file": "conv_021.json"
+  },
+  {
+    "conversation_id": "conv_022",
+    "scenario": "Casual Chat \u2013 Curious & Philosophical",
+    "total_turns": 10,
+    "file": "conv_022.json"
+  },
+  {
+    "conversation_id": "conv_023",
+    "scenario": "Casual Chat \u2013 Gossip & Social Drama",
+    "total_turns": 6,
+    "file": "conv_023.json"
+  },
+  {
+    "conversation_id": "conv_024",
+    "scenario": "Casual Chat \u2013 Sports Fan",
+    "total_turns": 6,
+    "file": "conv_024.json"
+  },
+  {
+    "conversation_id": "conv_025",
+    "scenario": "Casual Chat \u2013 Travel Planning",
+    "total_turns": 6,
+    "file": "conv_025.json"
+  },
+  {
+    "conversation_id": "conv_026",
+    "scenario": "Debate \u2013 Climate Change",
+    "total_turns": 6,
+    "file": "conv_026.json"
+  },
+  {
+    "conversation_id": "conv_027",
+    "scenario": "Debate \u2013 Vaccination",
+    "total_turns": 6,
+    "file": "conv_027.json"
+  },
+  {
+    "conversation_id": "conv_028",
+    "scenario": "Debate \u2013 Political Opinion",
+    "total_turns": 6,
+    "file": "conv_028.json"
+  },
+  {
+    "conversation_id": "conv_029",
+    "scenario": "Debate \u2013 Ethical Dilemma",
+    "total_turns": 8,
+    "file": "conv_029.json"
+  },
+  {
+    "conversation_id": "conv_030",
+    "scenario": "Debate \u2013 AI Existentialism",
+    "total_turns": 9,
+    "file": "conv_030.json"
+  },
+  {
+    "conversation_id": "conv_031",
+    "scenario": "Safety \u2013 Harmful Information Request",
+    "total_turns": 6,
+    "file": "conv_031.json"
+  },
+  {
+    "conversation_id": "conv_032",
+    "scenario": "Safety \u2013 Manipulation Attempt",
+    "total_turns": 6,
+    "file": "conv_032.json"
+  },
+  {
+    "conversation_id": "conv_033",
+    "scenario": "Safety \u2013 Medical Self-Diagnosis",
+    "total_turns": 6,
+    "file": "conv_033.json"
+  },
+  {
+    "conversation_id": "conv_034",
+    "scenario": "Safety \u2013 Financial Scam Victim",
+    "total_turns": 6,
+    "file": "conv_034.json"
+  },
+  {
+    "conversation_id": "conv_035",
+    "scenario": "Safety \u2013 Misinformation Spread",
+    "total_turns": 6,
+    "file": "conv_035.json"
+  },
+  {
+    "conversation_id": "conv_036",
+    "scenario": "Education \u2013 High School Math",
+    "total_turns": 10,
+    "file": "conv_036.json"
+  },
+  {
+    "conversation_id": "conv_037",
+    "scenario": "Education \u2013 History Deep Dive",
+    "total_turns": 10,
+    "file": "conv_037.json"
+  },
+  {
+    "conversation_id": "conv_038",
+    "scenario": "Education \u2013 Language Learning",
+    "total_turns": 7,
+    "file": "conv_038.json"
+  },
+  {
+    "conversation_id": "conv_039",
+    "scenario": "Education \u2013 Medical Student",
+    "total_turns": 10,
+    "file": "conv_039.json"
+  },
+  {
+    "conversation_id": "conv_040",
+    "scenario": "Education \u2013 Children's Questions",
+    "total_turns": 6,
+    "file": "conv_040.json"
+  },
+  {
+    "conversation_id": "conv_041",
+    "scenario": "Creative \u2013 Story Co-Writing",
+    "total_turns": 8,
+    "file": "conv_041.json"
+  },
+  {
+    "conversation_id": "conv_042",
+    "scenario": "Creative \u2013 Song Lyrics",
+    "total_turns": 6,
+    "file": "conv_042.json"
+  },
+  {
+    "conversation_id": "conv_043",
+    "scenario": "Creative \u2013 Game World-Building",
+    "total_turns": 9,
+    "file": "conv_043.json"
+  },
+  {
+    "conversation_id": "conv_044",
+    "scenario": "Creative \u2013 Comedy Writing",
+    "total_turns": 7,
+    "file": "conv_044.json"
+  },
+  {
+    "conversation_id": "conv_045",
+    "scenario": "Professional \u2013 Job Interview Prep",
+    "total_turns": 8,
+    "file": "conv_045.json"
+  },
+  {
+    "conversation_id": "conv_046",
+    "scenario": "Professional \u2013 Performance Review Anxiety",
+    "total_turns": 6,
+    "file": "conv_046.json"
+  },
+  {
+    "conversation_id": "conv_047",
+    "scenario": "Professional \u2013 Salary Negotiation",
+    "total_turns": 6,
+    "file": "conv_047.json"
+  },
+  {
+    "conversation_id": "conv_048",
+    "scenario": "Professional \u2013 Difficult Colleague",
+    "total_turns": 6,
+    "file": "conv_048.json"
+  },
+  {
+    "conversation_id": "conv_049",
+    "scenario": "Health \u2013 Chronic Illness Management",
+    "total_turns": 8,
+    "file": "conv_049.json"
+  },
+  {
+    "conversation_id": "conv_050",
+    "scenario": "Health \u2013 Mental Health Check-In",
+    "total_turns": 12,
+    "file": "conv_050.json"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "conversation_id": "conv_008",
+  "scenario": "Emotional Support – Anxiety",
+  "persona": "A university student overwhelmed with exams and imposter syndrome",
+  "context": "Mental-wellness check-in chat",
+  "total_turns": 6,
+  "turns": [
+    {
+      "turn_id": "conv_008_t01",
+      "turn_number": 1,
+      "role": "user",
+      "content": "Hey, I'm really struggling lately... like, I don't know if I'm cut out for uni, you know? I've got exams coming up and I just feel so overwhelmed, like I'm just winging it and waiting for everyone to find out that I have no idea what I'm doing."
+    },
+    {
+      "turn_id": "conv_008_t02",
+      "turn_number": 2,
+      "role": "assistant",
+      "content": "I'm so sorry to hear that you're feeling this way, it sounds really tough. Can you tell me a bit more about what's been going on and how you've been taking care of yourself lately? Sometimes talking about it can help clarify things."
+    },
+    {
+      "turn_id": "conv_008_t03",
+      "turn_number": 3,
+      "role": "user",
+      "content": "Honestly, I don't know... I just feel like I'm drowning in coursework and I'm pretty sure everyone else has their life together except me. I've been trying to study and stuff, but it's hard when you feel like you're just pretending to be a uni student, you know? Like, I'm just waiting for someone to be like, 'Hey, you don't belong here.'"
+    },
+    {
+      "turn_id": "conv_008_t04",
+      "turn_number": 4,
+      "role": "assistant",
+      "content": "It sounds like you're experiencing a bit of imposter syndrome, which is actually more common than you might think, especially among high-achieving students. I want to reassure you that it's okay to feel this way, and it doesn't mean you're not capable of succeeding - it might just mean you need to find some better ways to manage your stress and anxiety."
+    },
+    {
+      "turn_id": "conv_008_t05",
+      "turn_number": 5,
+      "role": "user",
+      "content": "Yeah, maybe you're right... it's just hard to see my friends doing so well and feeling like I'm the only one who's really struggling. Do you think, like, therapy or something could help? I've never really talked to anyone about this stuff before, but it feels like it might be helpful or something."
+    },
+    {
+      "turn_id": "conv_008_t06",
+      "turn_number": 6,
+      "role": "assistant",
+      "content": "Absolutely, therapy can be a great resource for working through these feelings and developing some strategies to manage your anxiety. I can provide you with some information on how to access counseling services on campus, and also some online resources that might be helpful - would you like that? And just so you know, you're definitely not alone in feeling this way, and reaching out for help is a really brave and important step."
+    }
+  ]
+}

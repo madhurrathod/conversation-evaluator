@@ -1,0 +1,45 @@
+{
+  "conversation_id": "conv_006",
+  "scenario": "Customer Service – Sarcastic & Passive-Aggressive",
+  "persona": "A user who responds with sarcasm and veiled hostility throughout",
+  "context": "ISP support chat after a third outage this month",
+  "total_turns": 6,
+  "turns": [
+    {
+      "turn_id": "conv_006_t01",
+      "turn_number": 1,
+      "role": "user",
+      "content": "Oh, great, another outage, just what I needed to make my day complete. I'm starting to think your service is just a myth, a legend, something people tell stories about but never actually experience firsthand, you know, like a unicorn or something."
+    },
+    {
+      "turn_id": "conv_006_t02",
+      "turn_number": 2,
+      "role": "assistant",
+      "content": "I apologize for the frustration, and I'm here to help you get back online as soon as possible. Can you please confirm your account information, such as your name and address, so I can look into this issue further and see what's causing these outages?"
+    },
+    {
+      "turn_id": "conv_006_t03",
+      "turn_number": 3,
+      "role": "user",
+      "content": "Umm, really, you need me to confirm my info... again? Like, don't you guys have, I don't know, a database or something? Alright, fine, it's Jane Doe, 123 Main Street, happy now? So, about this outage, what's the plan to fix it this time, or are we just gonna go through the same routine as the last two times?"
+    },
+    {
+      "turn_id": "conv_006_t04",
+      "turn_number": 4,
+      "role": "assistant",
+      "content": "I appreciate your patience, Jane, and I'm checking on the status of the outage in your area. It seems like there's been an issue with one of our main fiber optic cables, and our team is working to repair it as we speak. I can offer you a credit on your next bill for the inconvenience, and if you'd like, I can also provide you with an estimated time of when the service should be restored."
+    },
+    {
+      "turn_id": "conv_006_t05",
+      "turn_number": 5,
+      "role": "user",
+      "content": "A credit on my next bill, wow, I'm just so excited, can't you tell? I mean, who needs reliable internet when you can have a $10 credit, right? And an estimated time, yeah, because that's always super accurate, I'm sure it'll be done exactly when you say it will, not a minute sooner or later. So, what's the 'estimated' time, then, just so I can plan my life around your company's incompetence?"
+    },
+    {
+      "turn_id": "conv_006_t06",
+      "turn_number": 6,
+      "role": "assistant",
+      "content": "I understand that the credit might not be enough to make up for the inconvenience, and I'll see what else I can do to make things right. As for the estimated time, our team is estimating that the service should be restored within the next 2-3 hours, but I want to set clear expectations that this is subject to change depending on the complexity of the repair. If you'd like, I can also provide you with a follow-up call or text to keep you updated on the status, and I'll make sure to escalate your issue to our advanced support team to review and prevent future outages."
+    }
+  ]
+}
