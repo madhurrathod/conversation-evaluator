@@ -1,6 +1,9 @@
 # Secrets — never commit
 .streamlit/secrets.toml
 
+# Scripts not for repo
+prompt-log/generate_pdf.py
+
 # Python
 __pycache__/
 *.py[cod]
