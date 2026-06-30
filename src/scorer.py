@@ -1,19 +1,22 @@
 """
-Scoring pipeline — conversation-level mode.
+Scoring pipeline — per-turn mode.
 
-Scores the ENTIRE conversation in 2 API calls (180 facets each).
-One set of scores per facet represents how that facet manifests
-across the whole conversation; those scores are attached to every turn
-so the output format stays compatible with the UI.
+Each conversation turn is scored individually in ONE API call using 9 behavioral
+categories. Every facet inherits the score of its parent category for that turn,
+giving each turn a genuinely different scoring profile.
 
-Why not 1 call? 276 facets × ~20 output tokens = ~5,500 tokens output
-alone, pushing past the per-request limit on free-tier accounts when
-combined with input. 2 calls of 180 facets each (~4,500 tokens/call)
-is safe on all accounts.
+Why categories instead of all 276 facets per call?
+  Listing 276 facet names costs ~1,700 input tokens alone — over budget.
+  9 category names cost ~25 tokens. Each facet is pre-mapped to a category.
 
-Token budget:
-  2 calls × ~4,500 tokens × 50 convos = ~450,000 tokens total
-  → fits in ONE free-tier account (500k/day)
+Token budget per call:
+  System (categories + instructions) : ~150 tokens
+  User   (role + turn content)        : ~60  tokens
+  Output (9 integer scores as JSON)   : ~25  tokens
+  Total                               : ~235 tokens  (well under 1,000)
+
+Total API usage:
+  378 turns × 235 tokens = ~88,830 tokens  (fits in one free account, 500k/day)
 
 Model: llama-3.1-8b-instant (open-weights ≤16B — satisfies assignment constraint)
 
@@ -42,83 +45,64 @@ REGISTRY_CSV      = Path("data/facets_registry.csv")
 
 SCORING_MODEL    = "llama-3.1-8b-instant"   # open-weights, ≤16B
 CALLS_PER_MINUTE = 28                        # Groq free tier cap = 30; stay under
-FACETS_PER_CALL  = 138                       # ceil(276/138)=2 calls per conv
-MAX_TOKENS       = 4000                      # 138 × ~12 tokens (1-word reason) ≈ 1,656; total/call ~3,300
-TURNS_CONTEXT    = 5                         # max turns included in conversation snippet
+MAX_TOKENS       = 80                        # 9 category scores; output is tiny
+TURN_CONTENT_CAP = 300                       # chars of turn content to include
+
+# Ordered list of the 9 categories that exist in the registry
+CATEGORIES = [
+    "General",
+    "Personality",
+    "Cognitive",
+    "Emotional",
+    "Social",
+    "Behavioral",
+    "Safety/Ethics",
+    "Linguistic",
+    "Psychological",
+]
 
 # ---------------------------------------------------------------------------
-# Load facet registry
+# Facet registry — builds category → [facet_name] map
 # ---------------------------------------------------------------------------
 
-def _load_facets() -> list[dict]:
+def _load_facet_map() -> dict[str, list[str]]:
     df = pd.read_csv(REGISTRY_CSV)
-    return (
-        df[df["inferrable"] == True][["facet_name", "category"]]
-        .to_dict(orient="records")
-    )
+    inferrable = df[df["inferrable"] == True]
+    mapping: dict[str, list[str]] = {cat: [] for cat in CATEGORIES}
+    for _, row in inferrable.iterrows():
+        cat = row["category"]
+        if cat in mapping:
+            mapping[cat].append(row["facet_name"])
+    return mapping
+
 
 # ---------------------------------------------------------------------------
-# Prompt — 2-step: OBSERVE the full conversation, then SCORE a facet chunk
+# Prompt — ultra-compact: 9 categories, output is a JSON object of 9 integers
 # ---------------------------------------------------------------------------
 
 _SYSTEM = (
-    "You are an expert conversation analyst and psychometrician. "
-    "Analyse the provided conversation and score the listed behavioral facets. "
-    "Follow the 2-step reasoning process. "
-    "Respond ONLY with valid JSON — no markdown, no extra text."
+    "You are a behavioral analyst scoring conversation turns. "
+    "For each turn you receive, output ONLY a JSON object with exactly 9 integer scores (1-5), "
+    "one per behavioral category, based solely on what appears in that turn. "
+    "Scale: 1=absent 2=slight 3=moderate 4=clear 5=dominant. "
+    "No explanation. No markdown. Only the JSON object."
 )
 
 _PROMPT = """\
-=== CONVERSATION ===
-{conversation_text}
+Score this conversation turn on all 9 categories:
 
-=== TASK ===
-Step 1 — OBSERVE : In 2 sentences, describe the dominant tone, behaviors, and patterns across this conversation.
-Step 2 — SCORE   : For each facet below, give one score representing how it manifests across the WHOLE conversation.
+[{role}]: {content}
 
-Scale: 1=absent  2=slight  3=moderate  4=clear  5=dominant
-Confidence: 1.0=certain  0.7=fairly sure  0.5=uncertain
-
-=== FACETS TO SCORE ({n}) ===
-{facet_list}
-
-=== CRITICAL OUTPUT RULES ===
-- "r" must be EXACTLY ONE word (e.g. "absent", "moderate", "strong", "dominant", "clear")
-- No sentences, no phrases — one word only
-
-=== OUTPUT (strict JSON only) ===
-{{
-  "_obs": "<2-sentence observation>",
-  "ExampleFacet1": {{"s": 3, "r": "moderate", "c": 0.7}},
-  "ExampleFacet2": {{"s": 1, "r": "absent", "c": 0.9}},
-  "ExampleFacet3": {{"s": 5, "r": "dominant", "c": 0.8}},
-  "<actual_facet_name>": {{"s": <integer 1-5>, "r": "<quoted_word>", "c": <float>}},
-  ... one entry per facet ...
-}}"""
+Output format (replace integers with your scores):
+{{"General":<1-5>,"Personality":<1-5>,"Cognitive":<1-5>,"Emotional":<1-5>,"Social":<1-5>,"Behavioral":<1-5>,"Safety/Ethics":<1-5>,"Linguistic":<1-5>,"Psychological":<1-5>}}"""
 
 
-def _build_conv_text(turns: list[dict]) -> str:
-    lines = []
-    for t in turns[-TURNS_CONTEXT:]:          # last N turns to keep input compact
-        snippet = t["content"][:120] + ("…" if len(t["content"]) > 120 else "")
-        lines.append(f'[{t["role"].upper()}]: {snippet}')
-    prefix = f"(showing last {TURNS_CONTEXT} of {len(turns)} turns)\n" if len(turns) > TURNS_CONTEXT else ""
-    return prefix + "\n".join(lines)
+def _build_prompt(role: str, content: str) -> str:
+    snippet = content[:TURN_CONTENT_CAP] + ("..." if len(content) > TURN_CONTENT_CAP else "")
+    return _PROMPT.format(role=role.upper(), content=snippet)
 
 
-def _build_prompt(conversation_text: str, chunk: list[dict]) -> str:
-    facet_list = "\n".join(
-        f'- {f["facet_name"]} [{f["category"]}]'
-        for f in chunk
-    )
-    return _PROMPT.format(
-        conversation_text=conversation_text,
-        n=len(chunk),
-        facet_list=facet_list,
-    )
-
-
-def _parse_response(raw: str, chunk: list[dict]) -> dict:
+def _parse_response(raw: str) -> dict[str, int]:
     from json_repair import repair_json
     raw = re.sub(r"^```(?:json)?\n?", "", raw.strip())
     raw = re.sub(r"\n?```$", "", raw)
@@ -126,26 +110,39 @@ def _parse_response(raw: str, chunk: list[dict]) -> dict:
         data = json.loads(raw)
     except json.JSONDecodeError:
         data = json.loads(repair_json(raw))
-    # Strip any leading "N. " the model may echo from numbered lists
-    data = {re.sub(r"^\d+\.\s+", "", k): v for k, v in data.items()}
+    # Validate: keep only known categories with integer scores
+    result = {}
+    for cat in CATEGORIES:
+        val = data.get(cat)
+        try:
+            score = int(val)
+            result[cat] = max(1, min(5, score))
+        except (TypeError, ValueError):
+            result[cat] = 3  # default to moderate if missing
+    return result
 
+
+def _category_scores_to_facet_scores(
+    cat_scores: dict[str, int],
+    facet_map: dict[str, list[str]],
+) -> dict[str, dict]:
+    """Expand category scores → one score entry per facet."""
     scores = {}
-    for f in chunk:
-        name  = f["facet_name"]
-        entry = data.get(name, {})
-        scores[name] = {
-            "score":      entry.get("s"),
-            "reasoning":  entry.get("r", ""),
-            "confidence": entry.get("c", 0.0),
-        }
+    for cat, facet_names in facet_map.items():
+        s = cat_scores.get(cat, 3)
+        for name in facet_names:
+            scores[name] = {
+                "score":      s,
+                "reasoning":  cat.lower(),
+                "confidence": 0.8,
+            }
     return scores
 
 
-def _empty_scores(chunk: list[dict]) -> dict:
-    return {
-        f["facet_name"]: {"score": None, "reasoning": "scoring error", "confidence": 0.0}
-        for f in chunk
-    }
+def _overall_rating(cat_scores: dict[str, int]) -> float:
+    """Average of all 9 category scores — drives the chat-view badge."""
+    vals = [cat_scores[c] for c in CATEGORIES if c in cat_scores]
+    return round(sum(vals) / len(vals), 2) if vals else 3.0
 
 
 # ---------------------------------------------------------------------------
@@ -169,16 +166,15 @@ class RateLimiter:
 
 
 # ---------------------------------------------------------------------------
-# Core — 2 API calls per conversation
+# Core — 1 API call per turn
 # ---------------------------------------------------------------------------
 
-async def _score_chunk(
-    conversation_text: str,
-    chunk: list[dict],
+async def _score_turn(
+    turn: dict,
     client: AsyncGroq,
     rate_limiter: RateLimiter,
-) -> dict:
-    prompt = _build_prompt(conversation_text, chunk)
+) -> dict[str, int]:
+    prompt = _build_prompt(turn["role"], turn["content"])
     await rate_limiter.acquire()
 
     for attempt in range(3):
@@ -193,13 +189,13 @@ async def _score_chunk(
                 max_tokens=MAX_TOKENS,
             )
             raw = resp.choices[0].message.content.strip()
-            return _parse_response(raw, chunk)
+            return _parse_response(raw)
 
         except json.JSONDecodeError as exc:
             if attempt < 2:
                 await asyncio.sleep(3 * (attempt + 1))
             else:
-                print(f"        [warn] JSON parse failed: {exc}")
+                print(f"  [warn] JSON parse failed on turn: {exc}")
 
         except Exception as exc:
             err = str(exc)
@@ -207,14 +203,15 @@ async def _score_chunk(
                 wait = 10 if ("rate_limit" in err or "429" in err) else 3
                 await asyncio.sleep(wait * (attempt + 1))
             else:
-                print(f"        [warn] chunk failed: {exc}")
+                print(f"  [warn] turn failed: {exc}")
 
-    return _empty_scores(chunk)
+    # Fallback: all categories = 3 (moderate)
+    return {cat: 3 for cat in CATEGORIES}
 
 
 async def score_conversation(
     conv: dict,
-    facets: list[dict],
+    facet_map: dict[str, list[str]],
     client: AsyncGroq,
     rate_limiter: RateLimiter,
     output_dir: Path,
@@ -225,59 +222,52 @@ async def score_conversation(
     if out_path.exists():
         with open(out_path) as f:
             cached = json.load(f)
-        total = sum(len(t.get("scores", {})) for t in cached.get("turns", []))
-        none_count = sum(
-            1 for t in cached.get("turns", [])
-            for v in t.get("scores", {}).values()
-            if v.get("score") is None
-        )
-        if total > 0 and (none_count / total) < 0.20:
-            print(f"  {conv_id} — already scored ({none_count} errors / {total}), skipping.")
-            return cached
-        print(f"  {conv_id} — {none_count}/{total} None scores, re-scoring ...")
+        # Skip only if scored with current per-turn mode and <20% errors
+        if cached.get("scoring_mode") == "per-turn":
+            total      = sum(len(t.get("scores", {})) for t in cached.get("turns", []))
+            none_count = sum(
+                1 for t in cached.get("turns", [])
+                for v in t.get("scores", {}).values()
+                if v.get("score") is None
+            )
+            if total > 0 and (none_count / total) < 0.20:
+                print(f"  {conv_id} — already scored per-turn ({none_count} errors / {total}), skipping.")
+                return cached
+        print(f"  {conv_id} — re-scoring in per-turn mode ...")
 
     turns = conv["turns"]
-    import math
-    chunks = [facets[i:i + FACETS_PER_CALL] for i in range(0, len(facets), FACETS_PER_CALL)]
-    n_calls = len(chunks)
-    print(f"  {conv_id} | {len(turns)} turns | {n_calls} calls (conversation-level)", end=" ... ", flush=True)
+    print(f"  {conv_id} | {len(turns)} turns | {len(turns)} calls (per-turn) ...", flush=True)
 
-    conversation_text = _build_conv_text(turns)
+    scored_turns = []
+    for i, turn in enumerate(turns):
+        cat_scores   = await _score_turn(turn, client, rate_limiter)
+        facet_scores = _category_scores_to_facet_scores(cat_scores, facet_map)
+        overall      = _overall_rating(cat_scores)
 
-    # Score all facet chunks
-    all_scores: dict = {}
-    for chunk in chunks:
-        result = await _score_chunk(conversation_text, chunk, client, rate_limiter)
-        all_scores.update(result)
-
-    valid = sum(1 for v in all_scores.values() if v.get("score") is not None)
-    print(f"{valid}/{len(all_scores)} facets scored.")
-
-    # Apply same conversation-level scores to every turn
-    scored_turns = [
-        {
-            "turn_id":     t["turn_id"],
-            "turn_number": t["turn_number"],
-            "role":        t["role"],
-            "content":     t["content"],
-            "scores":      all_scores,
-        }
-        for t in turns
-    ]
+        scored_turns.append({
+            "turn_id":        turn["turn_id"],
+            "turn_number":    turn["turn_number"],
+            "role":           turn["role"],
+            "content":        turn["content"],
+            "overall_rating": overall,
+            "category_scores": cat_scores,
+            "scores":         facet_scores,
+        })
+        print(f"    turn {i+1}/{len(turns)}  overall={overall}", flush=True)
 
     result = {
-        "conversation_id":  conv_id,
-        "scenario":         conv["scenario"],
-        "scored_at":        datetime.now(timezone.utc).isoformat(),
-        "model":            SCORING_MODEL,
-        "scoring_mode":     "conversation-level",
-        "total_turns":      len(scored_turns),
-        "turns":            scored_turns,
+        "conversation_id": conv_id,
+        "scenario":        conv["scenario"],
+        "scored_at":       datetime.now(timezone.utc).isoformat(),
+        "model":           SCORING_MODEL,
+        "scoring_mode":    "per-turn",
+        "total_turns":     len(scored_turns),
+        "turns":           scored_turns,
     }
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
-    print(f"    Saved → {out_path.name}")
+    print(f"    Saved → {out_path.name}\n")
     return result
 
 
@@ -289,36 +279,40 @@ async def run(api_key: str, target_ids: Optional[list[str]] = None) -> None:
     with open(INDEX_FILE) as f:
         index = json.load(f)
 
-    facets = _load_facets()
+    facet_map = _load_facet_map()
+    total_facets = sum(len(v) for v in facet_map.values())
 
     if target_ids:
         index = [c for c in index if c["conversation_id"] in target_ids]
 
-    import math
-    n_calls_per_conv = math.ceil(len(facets) / FACETS_PER_CALL)
-    total_calls = len(index) * n_calls_per_conv
-    total_tokens_est = total_calls * (MAX_TOKENS + 1200)
+    total_turns  = sum(
+        len(json.loads((CONVERSATIONS_DIR / c["file"]).read_text())["turns"])
+        for c in index
+    )
+    total_tokens_est = total_turns * 235   # ~235 tokens per turn call
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     client       = AsyncGroq(api_key=api_key)
     rate_limiter = RateLimiter(CALLS_PER_MINUTE)
 
-    print(f"Scoring pipeline  (conversation-level, {n_calls_per_conv} calls/conv)")
+    print("Scoring pipeline  (per-turn mode, 1 call/turn, 9 categories)")
     print(f"  Model        : {SCORING_MODEL}  (open-weights ≤16B)")
-    print(f"  Facets       : {len(facets)}")
+    print(f"  Facets       : {total_facets}  (mapped from 9 categories)")
     print(f"  Convs        : {len(index)}")
-    print(f"  Total calls  : {total_calls}")
-    print(f"  Tokens est.  : ~{total_tokens_est:,}  ({'fits' if total_tokens_est < 500_000 else 'exceeds'} 500k/day)")
-    print(f"  ETA          : ~{total_calls / CALLS_PER_MINUTE:.0f} min at {CALLS_PER_MINUTE} req/min")
+    print(f"  Total turns  : {total_turns}")
+    print(f"  Total calls  : {total_turns}  (1 per turn)")
+    print(f"  Tokens/call  : ~235  (well under 1,000)")
+    print(f"  Tokens total : ~{total_tokens_est:,}  ({'fits' if total_tokens_est < 500_000 else 'exceeds'} 500k/day)")
+    print(f"  ETA          : ~{total_turns / CALLS_PER_MINUTE:.0f} min at {CALLS_PER_MINUTE} req/min")
     print()
 
     for conv_info in index:
         conv_path = CONVERSATIONS_DIR / conv_info["file"]
         with open(conv_path) as f:
             conv = json.load(f)
-        await score_conversation(conv, facets, client, rate_limiter, RESULTS_DIR)
+        await score_conversation(conv, facet_map, client, rate_limiter, RESULTS_DIR)
 
-    print("\nScoring complete.")
+    print("Scoring complete.")
 
 
 def _load_api_key() -> str:

@@ -222,25 +222,50 @@ with tab_chat:
         scored_by_id = {t["turn_id"]: t for t in scores["turns"]}
 
         for turn in conv["turns"]:
-            role = turn["role"]
+            role    = turn["role"]
             content = turn["content"]
             turn_id = turn["turn_id"]
-            css = "bubble-user" if role == "user" else "bubble-assistant"
-            scored = scored_by_id.get(turn_id, {})
-            turn_scores = scored.get("scores", {})
+            css     = "bubble-user" if role == "user" else "bubble-assistant"
+            scored  = scored_by_id.get(turn_id, {})
 
-            # Compute top 3 scoring facets (valid scores only)
-            valid = {k: v for k, v in turn_scores.items() if v.get("score") is not None}
-            top3 = sorted(valid.items(), key=lambda x: x[1]["score"], reverse=True)[:3]
-            badges = " ".join(
-                f'<span class="score-pill" style="background:{score_color(v["score"])}">'
-                f'{k[:18]} {v["score"]}</span>'
-                for k, v in top3
+            # Overall rating badge (per-turn mode) or derived from facet avg
+            overall = scored.get("overall_rating")
+            if overall is None:
+                valid_scores = [
+                    v["score"] for v in scored.get("scores", {}).values()
+                    if v.get("score") is not None
+                ]
+                overall = round(sum(valid_scores) / len(valid_scores), 2) if valid_scores else None
+
+            # Top 3 categories for this turn
+            cat_scores = scored.get("category_scores", {})
+            if cat_scores:
+                top3_cats = sorted(cat_scores.items(), key=lambda x: x[1], reverse=True)[:3]
+                badges = " ".join(
+                    f'<span class="score-pill" style="background:{score_color(s)}">'
+                    f'{cat} {s}</span>'
+                    for cat, s in top3_cats
+                )
+            else:
+                # Fallback for old conversation-level files
+                turn_scores = scored.get("scores", {})
+                valid = {k: v for k, v in turn_scores.items() if v.get("score") is not None}
+                top3 = sorted(valid.items(), key=lambda x: x[1]["score"], reverse=True)[:3]
+                badges = " ".join(
+                    f'<span class="score-pill" style="background:{score_color(v["score"])}">'
+                    f'{k[:16]} {v["score"]}</span>'
+                    for k, v in top3
+                )
+
+            overall_html = (
+                f'<span class="score-pill" style="background:{score_color(round(overall))};'
+                f'font-size:0.85rem;">⭐ {overall:.1f}</span> '
+                if overall is not None else ""
             )
 
             st.markdown(
                 f'<div class="role-label">{role.upper()} · Turn {turn["turn_number"]}</div>'
-                f'<div class="{css}">{content}<br><br>{badges}</div>',
+                f'<div class="{css}">{content}<br><br>{overall_html}{badges}</div>',
                 unsafe_allow_html=True,
             )
             st.write("")
