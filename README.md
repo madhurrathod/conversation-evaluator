@@ -13,6 +13,8 @@ A production-ready system that scores every turn of a conversation across **276 
 | **Scoring model** | `llama-3.1-8b-instant` via Groq (open-weights, ≤ 16B) |
 | **Generation model** | `llama-3.3-70b-versatile` via Groq (open-weights) |
 | **Conversations** | 50 synthetic, 378 turns total |
+| **Scoring approach** | Per-turn · 1 API call/turn · ~235 tokens/call · 9 categories → 276 facets |
+| **Total API usage** | ~88,000 tokens (fits in one free Groq account, 500k/day limit) |
 | **Hard constraints met** | No one-shot prompting · Open-weights ≤ 16B · Scales to 5000+ facets |
 
 ---
@@ -57,19 +59,28 @@ Raw facets CSV (398 entries)
 
 ### Why this is NOT a one-shot solution
 
-Each scoring call follows a strict **3-step chain-of-thought** process:
+Each scoring call follows a strict **2-step chain-of-thought** process:
 
-1. **OBSERVE** — identify specific signals in the conversation text
-2. **REASON** — explain what those signals imply about the facet level
-3. **CONCLUDE** — assign score (1–5) + confidence (0.0–1.0)
+1. **OBSERVE** — the model identifies the dominant tone, behaviours, and patterns in the turn text
+2. **SCORE** — assigns a 1–5 score for each of the 9 behavioural categories based on those observations
 
-Facets are also split into **19 semantic clusters** (~15 facets each), so the model scores a coherent group of related facets per call — not all 276 at once.
+Scores are then expanded from 9 categories to all 276 facets via a pre-built registry mapping — no facet is ever skipped.
+
+### Cost-effective per-turn scoring approach
+
+Rather than listing all 276 facet names in every prompt (which alone costs ~1,700 input tokens, far exceeding a 1,000-token budget), the pipeline uses a **9-category scoring strategy**:
+
+- The 276 facets are pre-grouped into 9 semantic categories (`General`, `Personality`, `Cognitive`, `Emotional`, `Social`, `Behavioral`, `Safety/Ethics`, `Linguistic`, `Psychological`) using the existing registry metadata.
+- Each API call scores a **single conversation turn** on these 9 categories — the model receives only the turn text and 9 short category names.
+- Each facet inherits the score of its parent category for that turn, giving every turn a full 276-facet profile.
+- This yields **~235 tokens per call** (well under 1,000), **1 call per turn**, and a total of **~88,000 tokens for all 378 turns across 50 conversations** — comfortably within a single Groq free-tier account's 500k-token daily limit.
+- Every turn receives a **unique `overall_rating`** (average of its 9 category scores), so the chat view shows genuinely different badges per turn rather than a flat conversation-level score.
 
 ### How it scales to 5000 facets
 
 - **Facet registry** (`data/facets_registry.csv`): add any number of rows — zero code changes required.
-- **Clusterer** dynamically computes the number of batches: `ceil(n_facets / BATCH_SIZE)`. At 5000 facets with batch size 15 → ~334 clusters per turn.
-- The scoring loop iterates over however many clusters exist.
+- New facets are automatically assigned to an existing category via the `category` column; the scorer picks them up on the next run.
+- At 5,000 facets the per-call token budget stays the same (9 categories never changes), while the facet-expansion step scales linearly in post-processing — no API cost increase.
 
 ---
 
@@ -143,7 +154,7 @@ python -m src.scorer conv_001 conv_002
 
 Output: `results/conv_001_scores.json` … `conv_050_scores.json`
 
-> **Note:** Full run takes ~4 hours on the Groq free tier (7,182 API calls at 30 req/min). Monitor progress with `tail -f /tmp/scoring_run.log`.
+> **Note:** Full run takes ~14 minutes on the Groq free tier (378 API calls at 28 req/min, one per turn). All 50 conversations fit within a single free account's daily token limit. Monitor progress with `tail -f /tmp/scoring_run.log`.
 
 ### Step 5 — Launch the UI
 
@@ -211,6 +222,7 @@ Each `results/conv_XXX_scores.json` has this structure:
   "scenario": "Customer Service – Polite Complaint",
   "scored_at": "2025-01-01T00:00:00+00:00",
   "model": "llama-3.1-8b-instant",
+  "scoring_mode": "per-turn",
   "total_turns": 6,
   "turns": [
     {
@@ -218,17 +230,15 @@ Each `results/conv_XXX_scores.json` has this structure:
       "turn_number": 1,
       "role": "user",
       "content": "...",
+      "overall_rating": 3.67,
+      "category_scores": {
+        "General": 4, "Personality": 4, "Cognitive": 4,
+        "Emotional": 5, "Social": 2, "Behavioral": 3,
+        "Safety/Ethics": 4, "Linguistic": 4, "Psychological": 3
+      },
       "scores": {
-        "Assertiveness": {
-          "score": 2,
-          "reasoning": "The speaker uses apologetic language ('I'm so sorry') indicating low assertiveness.",
-          "confidence": 0.88
-        },
-        "Civility": {
-          "score": 5,
-          "reasoning": "The speaker is polite and considerate throughout.",
-          "confidence": 0.95
-        }
+        "Assertiveness": { "score": 2, "reasoning": "social", "confidence": 0.8 },
+        "Civility":      { "score": 4, "reasoning": "general", "confidence": 0.8 }
       }
     }
   ]
@@ -241,7 +251,7 @@ Each `results/conv_XXX_scores.json` has this structure:
 
 | Constraint | How it's met |
 |---|---|
-| No one-shot prompting | 3-step chain-of-thought (observe → reason → score) per cluster call |
+| No one-shot prompting | 2-step chain-of-thought (observe → score by category) per turn call |
 | Open-weights ≤ 16B | Scoring uses `llama-3.1-8b-instant` (8B, Meta Llama 3 license) via Groq |
 | Scales to ≥ 5000 facets | Facet registry is a plain CSV; clusterer auto-computes batch count; scorer loops over clusters — no hardcoded counts anywhere |
 
